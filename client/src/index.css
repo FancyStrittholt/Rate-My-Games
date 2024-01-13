@@ -1,0 +1,26 @@
+body {
+  font-family: Georgia, serif;
+  background-color: black;
+  margin: 0;
+  padding: 0;
+  color: #c5c38a;
+}
+
+body > div {
+  height: 100vh;
+  width: 100vw;
+}
+
+#container {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#main-section {
+  flex-grow: 1;
+}
+#main-section > div {
+  width: 100%;
+}
