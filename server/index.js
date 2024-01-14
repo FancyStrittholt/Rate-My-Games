@@ -11,8 +11,8 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 
 // init cors
-// const cors = require('cors');
-// app.use(cors());
+const cors = require('cors');
+app.use(cors());
 
 // init db client
 const client = require('./db/client');

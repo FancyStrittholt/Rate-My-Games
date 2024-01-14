@@ -1,11 +1,10 @@
-
 import {Routes, Route} from 'react-router-dom';
-import Games from './components/Games.jsx';
-import SingleGame from './components/SingleGame.jsx';
-import Login from './components/Login';
-import Register from './components/Register.jsx';
-import Account from './components/Account';
-import Leaderboard from './components/Leaderboard.jsx';
+import Games from './components/Games/Games.jsx';
+import SingleGame from './components/SingleGame/SingleGame.jsx';
+import Login from './components/Login/Login';
+import Register from './components/Register/Register.jsx';
+import Account from './components/Account/Account';
+import Leaderboard from './components/Leaderboard/Leaderboard.jsx';
 import Nav from './components/Nav/Nav.jsx';
 
 export default function App() {

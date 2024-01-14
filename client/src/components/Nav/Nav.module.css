@@ -1,4 +1,6 @@
 .nav {
-  background-color: aqua;
-  color: brown;
+  background-color: rgb(226, 44, 243);
+  color: whitesmoke;
+  padding-left: 25px;
+  font-size: larger;
 }

@@ -8,6 +8,10 @@ const slice = createSlice({
   name: 'slice',
   initialState,
   reducers: {
+    updateGames: (state, { payload }) => {
+      state.games = payload;
+      sessionStorage.setItem('games', JSON.stringify(state.games));
+    },
     updateToken: (state, { payload }) => {
       state.token = payload;
       sessionStorage.setItem('token', JSON.stringify(state.token));
@@ -15,6 +19,6 @@ const slice = createSlice({
   },
 });
 
-export const { updateToken } = slice.actions;
+export const { updateToken, updateGames } = slice.actions;
 
 export default slice.reducer;

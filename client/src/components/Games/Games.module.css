@@ -1,0 +1,23 @@
+.game-container {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 25px;
+}
+
+.game-card {
+  width: 350px;
+  border: 1px solid rgb(204, 33, 238);
+  border-radius: 5px;
+  background-color: rgb(43, 5, 68);
+  padding: 15px;
+}
+
+.search-container {
+  display: flex;
+  flex-direction: end;
+  gap: 10px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 50px;
+}
