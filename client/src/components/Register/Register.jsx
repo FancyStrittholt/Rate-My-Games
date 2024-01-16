@@ -2,8 +2,8 @@ import {useEffect, useState} from 'react';
 import {useRegisterMutation} from '../../../api/gamesApi';
 import {useNavigate} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
-import {updateToken} from '../../app/slice';
 import styles from './Register.module.css';
+import { updateUser } from '../../app/slice';
 
 export default function Register() {
     const VALID_EMAIL =
@@ -62,7 +62,7 @@ export default function Register() {
 
         if (canSave) {
             const response = await register({username, email, password});
-            dispatch(updateToken(response.data.token));
+            dispatch(updateUser(response.data));
         }
     };
 

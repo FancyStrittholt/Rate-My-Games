@@ -1,17 +1,17 @@
 import {useSelector} from 'react-redux';
 import {Link, useNavigate} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
-import {updateToken} from '../../app/slice';
 import styles from './Nav.module.css';
+import {updateUser} from '../../app/slice';
 
 export default function Nav() {
-    const token = useSelector((it) => it.state.token);
+    const token = useSelector((it) => it.state.user?.token);
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
     function logout() {
         navigate('/');
-        dispatch(updateToken(''));
+        dispatch(updateUser(''));
     }
     return (
         <>

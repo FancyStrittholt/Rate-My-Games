@@ -2,7 +2,7 @@ import {useNavigate} from 'react-router-dom';
 import {useLoginMutation} from '../../../api/gamesApi';
 import {useDispatch} from 'react-redux';
 import {useEffect, useState} from 'react';
-import {updateToken} from '../../app/slice';
+import { updateUser } from '../../app/slice';
 
 export default function Login() {
     const [login, {isSuccess, error}] = useLoginMutation();
@@ -22,7 +22,7 @@ export default function Login() {
         event.preventDefault();
 
         const response = await login({username, password});
-        dispatch(updateToken(response.data.token));
+        dispatch(updateUser(response.data));
     };
 
     return (

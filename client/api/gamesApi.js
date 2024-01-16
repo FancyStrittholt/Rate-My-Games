@@ -37,21 +37,24 @@ export const gamesApi = createApi({
       }),
     }),
     upVote: builder.mutation({
-      query: (userid, gameid) => ({
-        url: `/votes/${gameid}/up`,
+      query: (data) => ({
+        url: `/votes/${data.gameid}/up`,
         method: 'POST',
-        body: { userid },
+        body: { userid: data.userid },
       }),
     }),
     downVote: builder.mutation({
-      query: (userid, gameid) => ({
-        url: `/votes/${gameid}/down`,
+      query: (data) => ({
+        url: `/votes/${data.gameid}/down`,
         method: 'DELETE',
-        body: { userid },
+        body: { userid : data.userid},
       }),
     }),
     getMyVotes: builder.mutation({
       query: (id) => `/votes/mine/${id}`,
+    }),
+    getGameVotes: builder.mutation({
+      query: (id) => `/games/${id}`,
     }),
   }),
 });
@@ -65,4 +68,5 @@ export const {
   useUpVoteMutation,
   useDownVoteMutation,
   useGetMyVotesMutation,
+  useGetGameVotesMutation
 } = gamesApi;

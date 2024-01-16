@@ -1,7 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
-
 const initialState = {
-  token: sessionStorage.getItem('token') === null ? '' : JSON.parse(sessionStorage.getItem('token')),
+  user: sessionStorage.getItem('user') === null ? '' : JSON.parse(sessionStorage.getItem('user')),
 };
 
 const slice = createSlice({
@@ -12,17 +11,17 @@ const slice = createSlice({
       state.games = payload;
       sessionStorage.setItem('games', JSON.stringify(state.games));
     },
-    updateToken: (state, { payload }) => {
-      state.token = payload;
-      sessionStorage.setItem('token', JSON.stringify(state.token));
-    },
     updateVotes: (state, { payload }) => {
       state.votes = payload;
       sessionStorage.setItem('votes', JSON.stringify(state.votes));
     },
+    updateUser: (state, { payload }) => {
+      state.user = payload;
+      sessionStorage.setItem('user', JSON.stringify(state.user));
+    },
   },
 });
 
-export const { updateToken, updateGames, updateVotes } = slice.actions;
+export const { updateUser, updateGames, updateVotes } = slice.actions;
 
 export default slice.reducer;

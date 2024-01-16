@@ -34,11 +34,10 @@ export default function SingleGame() {
                     ></img>
                         <p>Developer: {data.developer} </p>
                         <p>Publisher: {data.publisher}</p>
-                        <p>Description: {data.description}</p>
                         <p>Get Game Now: <a rel="noreferrer" href={data.link} target="_blank">{data.link}</a></p>
-                    </div>
                     <div className='game-description'>
                         <p className='paragraph'> {data.description} </p>
+                    </div>
                     </div>
                 </div>
             </div>

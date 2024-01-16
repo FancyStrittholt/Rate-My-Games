@@ -1,23 +1,38 @@
 import {useDispatch, useSelector} from 'react-redux';
 import {useEffect, useState} from 'react';
 import {useNavigate} from 'react-router-dom';
-import {useGetGamesMutation, useGetMyVotesMutation} from '../../../api/gamesApi';
-import {updateGames} from '../../app/slice';
+import {
+    useDownVoteMutation,
+    useGetGameVotesMutation,
+    useGetGamesMutation,
+    useGetMyVotesMutation,
+    useUpVoteMutation,
+} from '../../../api/gamesApi';
+import {updateGames, updateVotes} from '../../app/slice';
 import styles from './Games.module.css';
+import {GiChainedHeart} from 'react-icons/gi';
 
 export default function Games() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const token = useSelector((it) => it.state.token);
+    const userId = useSelector((it) => it.state.user?.id);
+    const votes = useSelector((it) => it.state.votes);
     const games = useSelector((it) => it.state.games);
     const [search, setSearch] = useState('');
     const [filteredGames, setFilteredGames] = useState(games);
 
     const [getGames, {error, isLoading}] = useGetGamesMutation();
     const [getMyVotes] = useGetMyVotesMutation();
+    const [upVote] = useUpVoteMutation();
+    const [downVote] = useDownVoteMutation();
+    const [getGameVotes] = useGetGameVotesMutation();
 
     useEffect(() => {
         fetchGames();
+
+        if (userId) {
+            fetchMyVotes();
+        }
     }, []);
 
     useEffect(() => {
@@ -60,18 +75,38 @@ export default function Games() {
 
     async function fetchMyVotes() {
         try {
-            const response = await getMyVotes();
+            const response = await getMyVotes(userId);
             dispatch(updateVotes(response.data));
         } catch (error) {
             console.error(error);
         }
     }
 
+    async function handleUpvote(gameid) {
+        await upVote({userid: userId, gameid});
+        fetchMyVotes();
+    }
+
+    async function handleDownvote(gameid) {
+        await downVote({userid: userId, gameid});
+        fetchMyVotes();
+    }
+
+    // async function gameVotes(gameid) {
+    //     await 
+    // }
+
     function createGameCards() {
         const games = [];
 
         for (const game of filteredGames) {
-            console.log(`../../../assets/images/${game.image}`);
+            let haveVoted = false;
+            if (votes && votes.length > 0) {
+                haveVoted = votes.find((it) => it.gameid === game.id) !== undefined;
+            }
+
+            // const gameVotes = fetchGameVotes(game.id)
+
             games.push(
                 <div key={game.id} className={styles['game-card']}>
                     <h2>{game.name}</h2>
@@ -83,6 +118,22 @@ export default function Games() {
                     <button value={game.id} onClick={(event) => showDetails(event)} className='show-details'>
                         Show Details
                     </button>
+
+
+
+                    {userId && (
+                        <>
+                            {haveVoted ? (
+                                <button onClick={() => handleDownvote(game.id)}>
+                                    <GiChainedHeart style={{color: 'blue'}} />
+                                </button>
+                            ) : (
+                                <button onClick={() => handleUpvote(game.id)}>
+                                    <GiChainedHeart />
+                                </button>
+                            )}
+                        </>
+                    )}
                 </div>
             );
         }
