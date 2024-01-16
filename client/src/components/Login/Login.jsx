@@ -7,7 +7,7 @@ import {updateToken} from '../../app/slice';
 export default function Login() {
     const [login, {isSuccess, error}] = useLoginMutation();
 
-    const [email, setEmail] = useState('');
+    const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -21,7 +21,7 @@ export default function Login() {
     const onLogin = async (event) => {
         event.preventDefault();
 
-        const response = await login({email, password});
+        const response = await login({username, password});
         dispatch(updateToken(response.data.token));
     };
 
@@ -31,14 +31,14 @@ export default function Login() {
                 <div className='login-card'>
                     <form onSubmit={onLogin}>
                         <h2>Login</h2>
-                        <label>Email</label>
+                        <label>Username</label>
                         <br />
                         <input
                             autoFocus
                             autoComplete='off'
-                            onChange={(event) => setEmail(event.target.value)}
+                            onChange={(event) => setUsername(event.target.value)}
                             type='text'
-                            name='Email'
+                            name='username'
                         />
                         <br />
                         <label>Password</label>

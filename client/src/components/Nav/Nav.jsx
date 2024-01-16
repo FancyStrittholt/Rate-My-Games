@@ -16,45 +16,42 @@ export default function Nav() {
     return (
         <>
             <div className={styles.nav}>
-                <div className='navigation'>
-                    <div className='title'>
-                        <h2>Rate My Games</h2>
-                        <span className='material-icons'>diversity_1</span>
-                    </div>
-                    <div className='nav-links'>
-                        <span className='material-icons'>home</span>
-                        <Link to='/'>Home</Link>
+                <div>
+                    <h2>Rate My Games</h2>
+                </div>
+                <div className='nav-links'>
+                    <span className='material-icons'>sports_esports</span>
+                    <Link to='/'>Games</Link>
 
-                        {!token && (
-                            <>
-                                <span className='material-icons'>local_library</span>{' '}
-                                <Link to='/register'>Register</Link>
-                            </>
-                        )}
+                    {!token && (
+                        <>
+                            <span className='material-icons'>app_registration</span>{' '}
+                            <Link to='/register'>Register</Link>
+                        </>
+                    )}
 
-                        {token && (
-                            <>
-                                <span className='material-icons'>account_circle</span>
-                                <Link to='/account'>Account</Link>
-                            </>
-                        )}
+                    {token && (
+                        <>
+                            <span className='material-icons'>account_circle</span>
+                            <Link to='/account'>Account</Link>
+                        </>
+                    )}
 
-                        {!token && (
-                            <>
-                                <span className='material-icons'>login</span>
-                                <Link to='/login'>Login</Link>
-                            </>
-                        )}
+                    {!token && (
+                        <>
+                            <span className='material-icons'>login</span>
+                            <Link to='/login'>Login</Link>
+                        </>
+                    )}
 
-                        {token && (
-                            <>
-                                <span className='material-icons'>logout</span>
-                                <a onClick={() => logout()} to='/'>
-                                    Logout
-                                </a>
-                            </>
-                        )}
-                    </div>
+                    {token && (
+                        <>
+                            <span className='material-icons'>logout</span>
+                            <a onClick={() => logout()} to='/'>
+                                Logout
+                            </a>
+                        </>
+                    )}
                 </div>
             </div>
         </>

@@ -14,21 +14,21 @@ export const gamesApi = createApi({
     }),
     register: builder.mutation({
       query: (data) => ({
-        url: `/users/register`,
+        url: `/auth/register`,
         method: 'POST',
         body: { ...data },
       }),
     }),
     login: builder.mutation({
       query: (data) => ({
-        url: '/users/login',
+        url: '/auth/login',
         method: 'POST',
         body: { ...data },
       }),
     }),
     getAccount: builder.query({
       query: (token) => ({
-        url: '/users/me',
+        url: '/auth/me',
         method: 'GET',
         headers: {
           'content-type': 'application/json',
@@ -36,7 +36,33 @@ export const gamesApi = createApi({
         },
       }),
     }),
+    upVote: builder.mutation({
+      query: (userid, gameid) => ({
+        url: `/votes/${gameid}/up`,
+        method: 'POST',
+        body: { userid },
+      }),
+    }),
+    downVote: builder.mutation({
+      query: (userid, gameid) => ({
+        url: `/votes/${gameid}/down`,
+        method: 'DELETE',
+        body: { userid },
+      }),
+    }),
+    getMyVotes: builder.mutation({
+      query: (id) => `/votes/mine/${id}`,
+    }),
   }),
 });
 
-export const { useGetGamesMutation, useGetSingleGameQuery, useRegisterMutation, useLoginMutation, useGetAccountQuery } = gamesApi;
+export const {
+  useGetGamesMutation,
+  useGetSingleGameQuery,
+  useRegisterMutation,
+  useLoginMutation,
+  useGetAccountQuery,
+  useUpVoteMutation,
+  useDownVoteMutation,
+  useGetMyVotesMutation,
+} = gamesApi;

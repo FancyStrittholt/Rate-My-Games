@@ -3,6 +3,7 @@ import {useRegisterMutation} from '../../../api/gamesApi';
 import {useNavigate} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
 import {updateToken} from '../../app/slice';
+import styles from './Register.module.css';
 
 export default function Register() {
     const VALID_EMAIL =
@@ -11,8 +12,7 @@ export default function Register() {
 
     const [register, {isLoading, isSuccess, error}] = useRegisterMutation();
 
-    const [firstName, setFirstName] = useState('');
-    const [lastName, setLastName] = useState('');
+    const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [validEmail, setValidEmail] = useState(false);
     const [password, setPassword] = useState('');
@@ -36,7 +36,7 @@ export default function Register() {
         }
     }, [isSuccess, navigate]);
 
-    const canSave = firstName.length > 2 && lastName.length > 2 && validEmail && validPassword && !isLoading;
+    const canSave = username.length > 2 && validEmail && validPassword && !isLoading;
 
     const onRegister = async (event) => {
         event.preventDefault();
@@ -51,12 +51,8 @@ export default function Register() {
             errors.password = 'Invalid Password';
         }
 
-        if (firstName.length < 2) {
+        if (username.length < 2) {
             errors.firstName = 'Invalid First Name';
-        }
-
-        if (lastName.length < 2) {
-            errors.lastName = 'Invalid Last Name';
         }
 
         if (Object.keys(errors).length > 0) {
@@ -65,33 +61,24 @@ export default function Register() {
         }
 
         if (canSave) {
-            const response = await register({firstname: firstName, lastname: lastName, email, password});
+            const response = await register({username, email, password});
             dispatch(updateToken(response.data.token));
         }
     };
 
     return (
-        <div className='registerForm'>
+        <div className={styles['register-container']}>
             <div className='register-card'>
                 <h2>Register Now</h2>
                 <form onSubmit={onRegister}>
-                    <label>First Name</label>
+                    <label>Username</label>
                     <br />
                     <input
                         autoFocus
                         type='text'
-                        name='firstName'
+                        name='username'
                         autoComplete='off'
-                        onChange={(event) => setFirstName(event.target.value)}
-                    />
-                    <br />
-                    <label>Last Name</label>
-                    <br />
-                    <input
-                        type='text'
-                        name='lastName'
-                        autoComplete='off'
-                        onChange={(event) => setLastName(event.target.value)}
+                        onChange={(event) => setUsername(event.target.value)}
                     />
                     <br />
                     <label>Email</label>

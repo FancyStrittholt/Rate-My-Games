@@ -10,6 +10,24 @@ async function getAllGames() {
   }
 }
 
+async function getGameById(id) {
+  try {
+    const {
+      rows: [game],
+    } = await client.query(
+      `
+            SELECT * FROM games
+            WHERE id = $1;
+        `,
+      [id]
+    );
+    return game;
+  } catch (error) {
+    throw error;
+  }
+}
+
 module.exports = {
   getAllGames,
+  getGameById
 };

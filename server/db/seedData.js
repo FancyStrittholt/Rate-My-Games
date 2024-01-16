@@ -5,7 +5,9 @@ async function dropTables() {
     console.log('Dropping All Tables...');
     await client.query(`
       DROP TABLE IF EXISTS games;
-      DROP TABLE IF EXISTS leaderboard
+      DROP TABLE IF EXISTS leaderboard;
+      DROP TABLE IF EXISTS users;
+      DROP TABLE IF EXISTS votes;
     `);
   } catch (error) {
     throw error;
@@ -30,6 +32,17 @@ async function createTables() {
         name VARCHAR(255) UNIQUE NOT NULL,
         description TEXT NOT NULL,
         image VARCHAR(255) DEFAULT 'https://i.imgur.com/3J3wW9S.png'
+        );
+      CREATE TABLE users (
+        id SERIAL PRIMARY KEY,
+        username VARCHAR(255) UNIQUE NOT NULL,
+        email TEXT NOT NULL,
+        token VARCHAR(255) NOT NULL
+        );
+      CREATE TABLE votes (
+        id SERIAL PRIMARY KEY,
+        userid INTEGER NOT NULL,
+        gameid INTEGER NOT NULL
         );
       `);
   } catch (error) {

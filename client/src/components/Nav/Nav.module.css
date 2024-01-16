@@ -1,6 +1,11 @@
 .nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
   background-color: rgb(226, 44, 243);
   color: whitesmoke;
   padding-left: 25px;
+  padding-right: 25px;
   font-size: larger;
 }

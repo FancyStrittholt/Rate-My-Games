@@ -11,5 +11,6 @@ router.get('/health', (req, res, next) => {
 
 // ROUTER: /api/board-games
 router.use('/games', require('./games'));
-
+router.use('/auth', require('./auth'));
+router.use('/votes', require('./votes'));
 module.exports = router;

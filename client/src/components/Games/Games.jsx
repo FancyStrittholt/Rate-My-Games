@@ -1,7 +1,7 @@
 import {useDispatch, useSelector} from 'react-redux';
 import {useEffect, useState} from 'react';
 import {useNavigate} from 'react-router-dom';
-import {useGetGamesMutation} from '../../../api/gamesApi';
+import {useGetGamesMutation, useGetMyVotesMutation} from '../../../api/gamesApi';
 import {updateGames} from '../../app/slice';
 import styles from './Games.module.css';
 
@@ -14,6 +14,7 @@ export default function Games() {
     const [filteredGames, setFilteredGames] = useState(games);
 
     const [getGames, {error, isLoading}] = useGetGamesMutation();
+    const [getMyVotes] = useGetMyVotesMutation();
 
     useEffect(() => {
         fetchGames();
@@ -57,6 +58,15 @@ export default function Games() {
         }
     }
 
+    async function fetchMyVotes() {
+        try {
+            const response = await getMyVotes();
+            dispatch(updateVotes(response.data));
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
     function createGameCards() {
         const games = [];
 
@@ -66,10 +76,13 @@ export default function Games() {
                 <div key={game.id} className={styles['game-card']}>
                     <h2>{game.name}</h2>
                     <img
-                        width={300}
-                        height={220}
+                        width={320}
+                        height={200}
                         src={new URL(`../../assets/images/${game.image}`, import.meta.url).href}
                     ></img>
+                    <button value={game.id} onClick={(event) => showDetails(event)} className='show-details'>
+                        Show Details
+                    </button>
                 </div>
             );
         }
