@@ -19,9 +19,13 @@ const slice = createSlice({
       state.user = payload;
       sessionStorage.setItem('user', JSON.stringify(state.user));
     },
+    updateGameVotes: (state, { payload }) => {
+      state.gameVotes = payload;
+      sessionStorage.setItem('gameVotes', JSON.stringify(state.gameVotes))
+    }
   },
 });
 
-export const { updateUser, updateGames, updateVotes } = slice.actions;
+export const { updateUser, updateGames, updateVotes, updateGameVotes } = slice.actions;
 
 export default slice.reducer;

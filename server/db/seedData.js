@@ -8,6 +8,7 @@ async function dropTables() {
       DROP TABLE IF EXISTS leaderboard;
       DROP TABLE IF EXISTS users;
       DROP TABLE IF EXISTS votes;
+      DROP TABLE IF EXISTS tags;
     `);
   } catch (error) {
     throw error;
@@ -42,6 +43,11 @@ async function createTables() {
       CREATE TABLE votes (
         id SERIAL PRIMARY KEY,
         userid INTEGER NOT NULL,
+        gameid INTEGER NOT NULL
+        );
+      CREATE TABLE tags (
+        id SERIAL PRIMARY KEY,
+        name VARCHAR(255) NOT NULL,
         gameid INTEGER NOT NULL
         );
       `);
@@ -117,6 +123,85 @@ async function createInitialData() {
       ('Baldurs Gate 3', 'Larian Studios', 'Larian Studios', 'Baldurs Gate 3 is a story-rich, party-based RPG set in the universe of Dungeons & Dragons, where your choices shape a tale of fellowship and betrayal, survival and sacrifice, and the lure of absolute power.', 'BaldursGate3.png', 'https://store.steampowered.com/app/1086940/Baldurs_Gate_3/'),
       ('Lethal Company', 'Zeekers', 'Zeekers', 'A co-op horror about scavenging at abandoned moons to sell scrap to the Company.', 'LethalCompany.png', 'https://store.steampowered.com/app/1966720/Lethal_Company/')
         `);
+
+        await client.query(`
+        INSERT INTO tags (gameid, name)
+        VALUES
+          (1, 'FPS'),
+          (1, 'Multiplayer'),
+          (1, 'Action'), 
+          (1, 'Free to Play'),
+          (1, 'Strategy'),
+          (2, 'MMO'),
+          (2, 'Multiplayer'),
+          (2, 'Open World'),
+          (2, 'Fantasy'),
+          (2, 'RPG'),
+          (3, 'Free to Play'),
+          (3, 'FPS'),
+          (3, 'Multiplayer'),
+          (4, 'Battle Royale'),
+          (4, 'Multiplayer'),
+          (4, 'Survival'),
+          (5, 'Action'),
+          (5, 'Single Player'),
+          (5, 'Mythology'),
+          (5, 'Fantasy'),
+          (6, 'GPS'),
+          (6, 'RPG'),
+          (6, 'Multiplayer'),
+          (6, 'Mobile'),
+          (7, 'FPS'),
+          (7, 'Multiplayer'),
+          (7, 'FPS'),
+          (1, 'FPS'),
+          (1, 'FPS'),
+          (1, 'FPS'),
+          (1, 'FPS'),
+          (1, 'FPS'),
+          (1, 'FPS'),
+          (1, 'FPS'),
+          (1, 'FPS'),
+          (1, 'FPS'),
+          (1, 'FPS'),
+          (1, 'FPS'),
+          (1, 'FPS'),
+          (1, 'FPS'),
+          (1, 'FPS'),
+          (1, 'FPS'),
+          (1, 'FPS'),
+          (1, 'FPS'),
+          (1, 'FPS'),
+          (1, 'FPS'),
+          (1, 'FPS'),
+          (1, 'FPS'),
+          (1, 'FPS'),
+          (1, 'FPS'),
+          (1, 'FPS'),
+          (1, 'FPS'),
+          (1, 'FPS'),
+          (1, 'FPS'),
+          (1, 'FPS'),
+          (1, 'FPS'),
+          (1, 'FPS'),
+          (1, 'FPS'),
+          (1, 'FPS'),
+          (1, 'FPS'),
+          (1, 'FPS'),
+          (1, 'FPS'),
+          (1, 'FPS'),
+          (1, 'FPS'),
+          (1, 'FPS'),
+          (1, 'FPS'),
+          (1, 'FPS'),
+          (1, 'FPS'),
+          (1, 'FPS'),
+          (1, 'FPS'),
+          (1, 'FPS');
+
+
+
+            `);
     // await client.query(`
     //   INSERT INTO leaderboard (name, description, image)
     //     VALUES

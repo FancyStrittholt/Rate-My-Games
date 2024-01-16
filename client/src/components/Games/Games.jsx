@@ -8,7 +8,7 @@ import {
     useGetMyVotesMutation,
     useUpVoteMutation,
 } from '../../../api/gamesApi';
-import {updateGames, updateVotes} from '../../app/slice';
+import {updateGameVotes, updateGames, updateVotes} from '../../app/slice';
 import styles from './Games.module.css';
 import {GiChainedHeart} from 'react-icons/gi';
 
@@ -17,6 +17,7 @@ export default function Games() {
     const navigate = useNavigate();
     const userId = useSelector((it) => it.state.user?.id);
     const votes = useSelector((it) => it.state.votes);
+    const gameVotes = useSelector((it) => it.state.gameVotes);
     const games = useSelector((it) => it.state.games);
     const [search, setSearch] = useState('');
     const [filteredGames, setFilteredGames] = useState(games);
@@ -29,6 +30,7 @@ export default function Games() {
 
     useEffect(() => {
         fetchGames();
+        fetchGameVotes();
 
         if (userId) {
             fetchMyVotes();
@@ -85,16 +87,23 @@ export default function Games() {
     async function handleUpvote(gameid) {
         await upVote({userid: userId, gameid});
         fetchMyVotes();
+        fetchGameVotes();
     }
 
     async function handleDownvote(gameid) {
         await downVote({userid: userId, gameid});
         fetchMyVotes();
+        fetchGameVotes();
     }
 
-    // async function gameVotes(gameid) {
-    //     await 
-    // }
+    async function fetchGameVotes() {
+        try {
+            const response = await getGameVotes();
+            dispatch(updateGameVotes(response.data));
+        } catch (error) {
+            console.error(error);
+        }
+    }
 
     function createGameCards() {
         const games = [];
@@ -105,7 +114,7 @@ export default function Games() {
                 haveVoted = votes.find((it) => it.gameid === game.id) !== undefined;
             }
 
-            // const gameVotes = fetchGameVotes(game.id)
+            const numberOfVotes = gameVotes.find((it) => it.gameid === game.id)?.votes;
 
             games.push(
                 <div key={game.id} className={styles['game-card']}>
@@ -118,9 +127,7 @@ export default function Games() {
                     <button value={game.id} onClick={(event) => showDetails(event)} className='show-details'>
                         Show Details
                     </button>
-
-
-
+                    {numberOfVotes ? numberOfVotes : 0} Likes
                     {userId && (
                         <>
                             {haveVoted ? (

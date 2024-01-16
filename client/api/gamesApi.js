@@ -54,7 +54,7 @@ export const gamesApi = createApi({
       query: (id) => `/votes/mine/${id}`,
     }),
     getGameVotes: builder.mutation({
-      query: (id) => `/games/${id}`,
+      query: () => `/votes`,
     }),
   }),
 });

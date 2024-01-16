@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const { upVote, downVote, getVotesById, getVotesByUserId } = require('../db/sqlHelperFunctions/votes');
+const { upVote, downVote, getVotes, getVotesByUserId } = require('../db/sqlHelperFunctions/votes');
 
 router.post('/:id/up', async (req, res, next) => {
   try {
@@ -21,9 +21,9 @@ router.delete('/:id/down', async (req, res, next) => {
     }
   });
 
-  router.get('/:id', async (req, res, next) => {
+  router.get('/', async (req, res, next) => {
     try {
-      const votes = await getVotesById(req.params.id);
+      const votes = await getVotes(req.params.id);
       res.send(votes);
     } catch (error) {
       next(error);
