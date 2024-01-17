@@ -56,6 +56,12 @@ export const gamesApi = createApi({
     getGameVotes: builder.mutation({
       query: () => `/votes`,
     }),
+    getLeaderboard: builder.mutation({
+      query: (tag) => ({
+        url: `/leaderboard?tag=${tag}`,
+        method: 'GET',
+      }),
+    }),
   }),
 });
 
@@ -68,5 +74,6 @@ export const {
   useUpVoteMutation,
   useDownVoteMutation,
   useGetMyVotesMutation,
-  useGetGameVotesMutation
+  useGetGameVotesMutation,
+  useGetLeaderboardMutation
 } = gamesApi;

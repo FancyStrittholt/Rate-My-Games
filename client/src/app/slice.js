@@ -21,11 +21,21 @@ const slice = createSlice({
     },
     updateGameVotes: (state, { payload }) => {
       state.gameVotes = payload;
-      sessionStorage.setItem('gameVotes', JSON.stringify(state.gameVotes))
-    }
+      sessionStorage.setItem('gameVotes', JSON.stringify(state.gameVotes));
+    },
+    updateLeaderboard: (state, { payload }) => {
+      if (state.leaderboards) {
+        state.leaderboards[payload.tag] = payload.data;
+        sessionStorage.setItem('leaderboards', JSON.stringify(state.leaderboards));
+      } else {
+        state.leaderboards = {};
+        state.leaderboards[payload.tag] = payload.data;
+        sessionStorage.setItem('leaderboards', JSON.stringify(state.leaderboards));
+      }
+    },
   },
 });
 
-export const { updateUser, updateGames, updateVotes, updateGameVotes } = slice.actions;
+export const { updateUser, updateGames, updateVotes, updateGameVotes, updateLeaderboard } = slice.actions;
 
 export default slice.reducer;

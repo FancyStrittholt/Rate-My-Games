@@ -30,9 +30,9 @@ async function createTables() {
         );
       CREATE TABLE leaderboard (
         id SERIAL PRIMARY KEY,
-        name VARCHAR(255) UNIQUE NOT NULL,
-        description TEXT NOT NULL,
-        image VARCHAR(255) DEFAULT 'https://i.imgur.com/3J3wW9S.png'
+        type VARCHAR(255) NOT NULL,
+        gameid INTEGER NOT NULL,
+        votes INTEGER NOT NULL
         );
       CREATE TABLE users (
         id SERIAL PRIMARY KEY,
@@ -390,23 +390,6 @@ async function createInitialData() {
           (60, 'Survival'),
           (60, 'PVE');
             `);
-    // await client.query(`
-    //   INSERT INTO leaderboard (name, description, image)
-    //     VALUES
-    //     ('CSGO', 'The best game ever!', 'https://i.imgur.com/3J3wW9S.png'),
-    //     ('World of Warcraft', 'The best game ever!', 'https://i.imgur.com/3J3wW9S.png'),
-    //     ('Splitgate', 'The best game ever!', 'https://i.imgur.com/3J3wW9S.png'),
-    //     ('Fortnite', 'The best game ever!', 'https://i.imgur.com/3J3wW9S.png'),
-    //     ('God of War', 'The best game ever!', 'https://i.imgur.com/3J3wW9S.png'),Right
-    //     ('Orna', 'The best game ever!', 'https://i.imgur.com/3J3wW9S.png'),
-    //     ('The Finals', 'The best game ever!', 'https://i.imgur.com/3J3wW9S.png'),
-    //     ('Tombstone MMO', 'The best game ever!', 'https://i.imgur.com/3J3wW9S.png'),
-    //     ('Core Keeper', 'The best game ever!', 'https://i.imgur.com/3J3wW9S.png'),
-    //     ('OSRS', 'The best game ever!', 'https://i.imgur.com/3J3wW9S.png'),
-    //     ('Damascus', 'The best game ever!', 'https://i.imgur.com/3J3wW9S.png'),
-    //     ('Shatterline', 'The best game ever!', 'https://i.imgur.com/3J3wW9S.png'),
-    //     ('Valheim', 'The best game ever!', 'https://i.imgur.com/3J3wW9S.png'),
-    //     ('Horizon-Zero Dawn', 'The best game ever!', 'https://i.imgur.com/3J3wW9S.png')`);
   } catch (error) {
     throw error;
   }

@@ -23,6 +23,9 @@ export default function Nav() {
                     <span className='material-icons'>sports_esports</span>
                     <Link to='/'>Games</Link>
 
+                    <span className='material-icons'>sports_esports</span>
+                    <Link to='/leaderboard'>Leaderboard</Link>
+
                     {!token && (
                         <>
                             <span className='material-icons'>app_registration</span>{' '}
