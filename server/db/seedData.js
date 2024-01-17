@@ -38,7 +38,8 @@ async function createTables() {
         id SERIAL PRIMARY KEY,
         username VARCHAR(255) UNIQUE NOT NULL,
         email TEXT NOT NULL,
-        token VARCHAR(255) NOT NULL
+        token VARCHAR(255) NOT NULL,
+        pic VARCHAR(255) NOT NULL
         );
       CREATE TABLE votes (
         id SERIAL PRIMARY KEY,
