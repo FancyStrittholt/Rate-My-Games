@@ -14,7 +14,6 @@ export default function Games() {
     const [search, setSearch] = useState('');
     const [filteredGames, setFilteredGames] = useState(games);
     const [getGames, {error, isLoading}] = useGetGamesMutation();
-    const [loading, setLoading] = useState(true);
     const [getGameVotes] = useGetGameVotesMutation();
     const [getMyVotes] = useGetMyVotesMutation();
 
@@ -55,7 +54,6 @@ export default function Games() {
             const response = await getGames();
             dispatch(updateGames(response.data));
             setFilteredGames(response.data);
-            setLoading(false);
         } catch (error) {
             console.error(error);
         }
@@ -73,7 +71,6 @@ export default function Games() {
         try {
             const response = await getGameVotes();
             dispatch(updateGameVotes(response.data));
-            setLoading(false);
         } catch (error) {
             console.error(error);
         }
@@ -104,7 +101,7 @@ export default function Games() {
                 <input type='text' onChange={(event) => setSearch(event.target.value)}></input>
             </div>
             <div>
-                {filteredGames && filteredGames?.length > 0 && !loading && (
+                {filteredGames && filteredGames?.length > 0 && (
                     <div className={styles['game-container']}>{createGameCards()}</div>
                 )}
             </div>

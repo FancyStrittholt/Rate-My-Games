@@ -61,6 +61,7 @@ export default function GameCard(data) {
             haveVoted = votes.find((it) => it.gameid === data.game.id) !== undefined;
         }
         const numberOfVotes = gameVotes.find((it) => it.gameid === data.game.id)?.votes;
+
         return (
             <>
                 <div key={data.game.id} className={styles['game-card']}>
@@ -92,5 +93,5 @@ export default function GameCard(data) {
         );
     }
 
-    return <>{createCard()}</>;
+    return <>{gameVotes && createCard()}</>;
 }

@@ -10,6 +10,9 @@ async function register(body) {
     } = await client.query('INSERT INTO users (username, email, token) VALUES ($1, $2, $3) RETURNING *', [body.username, body.email, token]);
     return user;
   } catch (error) {
+    if (error.detail.includes('already exists')) {
+      return 'Username already exists.';
+    }
     throw new Error('Unable to create User');
   }
 }

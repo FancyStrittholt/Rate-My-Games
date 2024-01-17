@@ -5,7 +5,7 @@ async function getLeaderboard(tag) {
   try {
     const returnList = [];
 
-    if (tag === 'overall') {
+    if (tag === 'All') {
       const { rows: votes } = await client.query('SELECT * FROM votes');
       const { rows: games } = await client.query('SELECT * FROM games');
       for (const game of games) {

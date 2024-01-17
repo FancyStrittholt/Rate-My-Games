@@ -3,7 +3,7 @@ import {useRegisterMutation} from '../../../api/gamesApi';
 import {useNavigate} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
 import styles from './Register.module.css';
-import { updateUser } from '../../app/slice';
+import {updateUser} from '../../app/slice';
 
 export default function Register() {
     const VALID_EMAIL =
@@ -62,6 +62,7 @@ export default function Register() {
 
         if (canSave) {
             const response = await register({username, email, password});
+            console.log(response);
             dispatch(updateUser(response.data));
         }
     };
@@ -110,7 +111,7 @@ export default function Register() {
                         Register
                     </button>
                 </form>
-                {error?.data?.message && <p className='error'>{error?.data?.message}</p>}
+                {error?.data && <p className='error'>{error?.data}</p>}
                 {errors.firstName ? <p className='error'>{errors.firstName}</p> : null}
                 {errors.lastName ? <p className='error'>{errors.lastName}</p> : null}
                 {errors.email ? <p className='error'>{errors.email}</p> : null}
