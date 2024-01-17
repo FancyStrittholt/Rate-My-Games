@@ -9,7 +9,6 @@ import {
     useUpVoteMutation,
 } from '../../../api/gamesApi';
 import {updateGameVotes, updateVotes} from '../../app/slice';
-import {useEffect} from 'react';
 
 export default function GameCard(data) {
     const navigate = useNavigate();
@@ -22,14 +21,6 @@ export default function GameCard(data) {
     const [downVote] = useDownVoteMutation();
     const [getGameVotes] = useGetGameVotesMutation();
     const [getMyVotes] = useGetMyVotesMutation();
-
-    useEffect(() => {
-        fetchGameVotes();
-        console.log(votes);
-        if (userId && !votes) {
-            fetchMyVotes();
-        }
-    }, []);
 
     function showDetails(event) {
         navigate(`/games/${event.target.value}`);
@@ -101,5 +92,5 @@ export default function GameCard(data) {
         );
     }
 
-    return <>{votes && gameVotes && <>{createCard()}</>}</>;
+    return <>{createCard()}</>;
 }
