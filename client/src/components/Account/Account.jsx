@@ -1,11 +1,30 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Fragment, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./Account.module.css";
 import GameCard from "../common/GameCard";
 import { Dialog, Transition, RadioGroup } from "@headlessui/react";
+import { useUpdatePicMutation } from "../../../api/gamesApi";
+import { updateUser } from "../../app/slice";
 
-const pics = ["lara.png", "aloy.png", 'najuma.png', 'lifeline.png', 'cirilla.png', 'commando.png', 'conner.png', 'evee.png', 'jesse.png', 'joseph.png', 'keanu.png','link.png', 'loba.png', 'sylvanas.png', 'terrorist.png', 'witcher.png'];
+const pics = [
+  "lara.png",
+  "aloy.png",
+  "najuma.png",
+  "lifeline.png",
+  "cirilla.png",
+  "commando.png",
+  "conner.png",
+  "evee.png",
+  "jesse.png",
+  "joseph.png",
+  "keanu.png",
+  "link.png",
+  "loba.png",
+  "sylvanas.png",
+  "terrorist.png",
+  "witcher.png",
+];
 
 export default function Account() {
   const user = useSelector((it) => it.state.user);
@@ -13,6 +32,8 @@ export default function Account() {
   const games = useSelector((it) => it.state.games);
   let [isOpen, setIsOpen] = useState(false);
   const [selected, setSelected] = useState(pics[0]);
+  const [updatePic] = useUpdatePicMutation();
+  const dispatch = useDispatch();
 
   const navigate = useNavigate();
 
@@ -37,6 +58,16 @@ export default function Account() {
 
   function openModal() {
     setIsOpen(true);
+  }
+
+  async function updateAvatar() {
+    const updatedUser = await updatePic({
+      id: user.id,
+      pic: selected,
+      token: user.token,
+    });
+    dispatch(updateUser(updatedUser.data));
+    closeModal();
   }
 
   return (
@@ -98,7 +129,11 @@ export default function Account() {
                     Choose your avatar
                   </Dialog.Title>
                   <div className="mt-2">
-                    <RadioGroup value={selected} onChange={setSelected} className='flex flex-wrap gap-5'>
+                    <RadioGroup
+                      value={selected}
+                      onChange={setSelected}
+                      className="flex flex-wrap gap-5"
+                    >
                       {pics.map((pic) => (
                         <RadioGroup.Option key={pic} value={pic}>
                           {({ active, checked }) => (
@@ -135,7 +170,7 @@ export default function Account() {
                     <button
                       type="button"
                       className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-                      onClick={closeModal}
+                      onClick={updateAvatar}
                     >
                       Save
                     </button>

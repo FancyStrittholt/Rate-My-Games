@@ -8,9 +8,7 @@ import GameCard from '../common/GameCard';
 export default function Games() {
     const dispatch = useDispatch();
     const games = useSelector((it) => it.state.games);
-    const gameVotes = useSelector((it) => it.state.gameVotes);
     const userId = useSelector((it) => it.state.user?.id);
-    const votes = useSelector((it) => it.state.votes);
     const [search, setSearch] = useState('');
     const [filteredGames, setFilteredGames] = useState(games);
     const [getGames, {error, isLoading}] = useGetGamesMutation();

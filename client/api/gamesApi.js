@@ -1,13 +1,13 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const gamesApi = createApi({
-  reducerPath: 'api',
+  reducerPath: "api",
   baseQuery: fetchBaseQuery({
-    baseUrl: 'http://localhost:8080/api',
+    baseUrl: "http://localhost:8080/api",
   }),
   endpoints: (builder) => ({
     getGames: builder.mutation({
-      query: () => '/games',
+      query: () => "/games",
     }),
     getSingleGame: builder.query({
       query: (id) => `/games/${id}`,
@@ -15,23 +15,23 @@ export const gamesApi = createApi({
     register: builder.mutation({
       query: (data) => ({
         url: `/auth/register`,
-        method: 'POST',
+        method: "POST",
         body: { ...data },
       }),
     }),
     login: builder.mutation({
       query: (data) => ({
-        url: '/auth/login',
-        method: 'POST',
+        url: "/auth/login",
+        method: "POST",
         body: { ...data },
       }),
     }),
     getAccount: builder.query({
       query: (token) => ({
-        url: '/auth/me',
-        method: 'GET',
+        url: "/auth/me",
+        method: "GET",
         headers: {
-          'content-type': 'application/json',
+          "content-type": "application/json",
           authorization: `Bearer ${token}`,
         },
       }),
@@ -39,15 +39,15 @@ export const gamesApi = createApi({
     upVote: builder.mutation({
       query: (data) => ({
         url: `/votes/${data.gameid}/up`,
-        method: 'POST',
+        method: "POST",
         body: { userid: data.userid },
       }),
     }),
     downVote: builder.mutation({
       query: (data) => ({
         url: `/votes/${data.gameid}/down`,
-        method: 'DELETE',
-        body: { userid : data.userid},
+        method: "DELETE",
+        body: { userid: data.userid },
       }),
     }),
     getMyVotes: builder.mutation({
@@ -59,7 +59,18 @@ export const gamesApi = createApi({
     getLeaderboard: builder.mutation({
       query: (tag) => ({
         url: `/leaderboard?tag=${tag}`,
-        method: 'GET',
+        method: "GET",
+      }),
+    }),
+    updatePic: builder.mutation({
+      query: (data) => ({
+        url: `/user/pic`,
+        method: "PATCH",
+        headers: {
+          "content-type": "application/json",
+          authorization: `Bearer ${data.token}`,
+        },
+        body: { ...data },
       }),
     }),
   }),
@@ -75,5 +86,6 @@ export const {
   useDownVoteMutation,
   useGetMyVotesMutation,
   useGetGameVotesMutation,
-  useGetLeaderboardMutation
+  useGetLeaderboardMutation,
+  useUpdatePicMutation,
 } = gamesApi;

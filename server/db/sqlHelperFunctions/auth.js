@@ -1,7 +1,6 @@
 const client = require('../client');
 const util = require('util');
 const bcrypt = require('bcrypt');
-const { toNamespacedPath } = require('path');
 
 async function register(body) {
   try {
@@ -23,8 +22,6 @@ async function login(body) {
     const {
       rows: [user],
     } = await client.query(`SELECT * from users WHERE username = '${body.username}'`);
-
-    console.log(user.token);
 
     const itMatches = await bcrypt.compare(body.password, user.token);
 
