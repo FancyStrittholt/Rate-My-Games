@@ -57,15 +57,16 @@ export default function Leaderboard() {
   return (
     <>
       {leaderboards && (
+        <div className="w-full sm:px-0">
         <Tab.Group>
-          <Tab.List className="flex space-x-1 rounded-xl bg-blue-900/20 p-1">
+          <Tab.List className="flex space-x-1 rounded-xl bg-blue-900/20 mt-3 ml-8 mr-8">
             <Tab
               className={({ selected }) =>
                 classNames(
-                  "w-full rounded-lg py-2.5 text-sm font-medium leading-5",
+                  "bg-rose-600 w-full rounded-lg py-1.5 text-sm font-medium",
                   "ring-white/60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2",
                   selected
-                    ? "bg-white text-blue-700 shadow"
+                    ? "text-white shadow"
                     : "text-blue-100 hover:bg-white/[0.12] hover:text-white"
                 )
               }
@@ -76,10 +77,10 @@ export default function Leaderboard() {
             <Tab
               className={({ selected }) =>
                 classNames(
-                  "w-full rounded-lg py-2.5 text-sm font-medium leading-5",
+                  "bg-pink-600 w-full rounded-lg py-2.5 text-sm font-medium leading-5",
                   "ring-white/60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2",
                   selected
-                    ? "bg-white text-blue-700 shadow"
+                    ? "text-white shadow"
                     : "text-blue-100 hover:bg-white/[0.12] hover:text-white"
                 )
               }
@@ -90,10 +91,10 @@ export default function Leaderboard() {
             <Tab
               className={({ selected }) =>
                 classNames(
-                  "w-full rounded-lg py-2.5 text-sm font-medium leading-5",
+                  "bg-fuchsia-600 w-full rounded-lg py-2.5 text-sm font-medium leading-5",
                   "ring-white/60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2",
                   selected
-                    ? "bg-white text-blue-700 shadow"
+                    ? "text-white shadow"
                     : "text-blue-100 hover:bg-white/[0.12] hover:text-white"
                 )
               }
@@ -104,10 +105,10 @@ export default function Leaderboard() {
             <Tab
               className={({ selected }) =>
                 classNames(
-                  "w-full rounded-lg py-2.5 text-sm font-medium leading-5",
+                  "bg-purple-600 w-full rounded-lg py-2.5 text-sm font-medium leading-5",
                   "ring-white/60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2",
                   selected
-                    ? "bg-white text-blue-700 shadow"
+                    ? "text-white shadow"
                     : "text-blue-100 hover:bg-white/[0.12] hover:text-white"
                 )
               }
@@ -118,10 +119,10 @@ export default function Leaderboard() {
             <Tab
               className={({ selected }) =>
                 classNames(
-                  "w-full rounded-lg py-2.5 text-sm font-medium leading-5",
+                  "bg-violet-600 w-full rounded-lg py-2.5 text-sm font-medium leading-5",
                   "ring-white/60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2",
                   selected
-                    ? "bg-white text-blue-700 shadow"
+                    ? "text-white shadow"
                     : "text-blue-100 hover:bg-white/[0.12] hover:text-white"
                 )
               }
@@ -132,10 +133,10 @@ export default function Leaderboard() {
             <Tab
               className={({ selected }) =>
                 classNames(
-                  "w-full rounded-lg py-2.5 text-sm font-medium leading-5",
+                  "bg-indigo-600 w-full rounded-lg py-2.5 text-sm font-medium leading-5",
                   "ring-white/60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2",
                   selected
-                    ? "bg-white text-blue-700 shadow"
+                    ? "text-white shadow"
                     : "text-blue-100 hover:bg-white/[0.12] hover:text-white"
                 )
               }
@@ -146,10 +147,10 @@ export default function Leaderboard() {
             <Tab
               className={({ selected }) =>
                 classNames(
-                  "w-full rounded-lg py-2.5 text-sm font-medium leading-5",
+                  "bg-blue-600 w-full rounded-lg py-2.5 text-sm font-medium leading-5",
                   "ring-white/60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2",
                   selected
-                    ? "bg-white text-blue-700 shadow"
+                    ? "text-white shadow"
                     : "text-blue-100 hover:bg-white/[0.12] hover:text-white"
                 )
               }
@@ -160,10 +161,10 @@ export default function Leaderboard() {
             <Tab
               className={({ selected }) =>
                 classNames(
-                  "w-full rounded-lg py-2.5 text-sm font-medium leading-5",
+                  "bg-cyan-600 w-full rounded-lg py-2.5 text-sm font-medium leading-5",
                   "ring-white/60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2",
                   selected
-                    ? "bg-white text-blue-700 shadow"
+                    ? "text-white shadow"
                     : "text-blue-100 hover:bg-white/[0.12] hover:text-white"
                 )
               }
@@ -174,10 +175,10 @@ export default function Leaderboard() {
             <Tab
               className={({ selected }) =>
                 classNames(
-                  "w-full rounded-lg py-2.5 text-sm font-medium leading-5",
+                  "bg-teal-600 w-full rounded-lg py-2.5 text-sm font-medium leading-5",
                   "ring-white/60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2",
                   selected
-                    ? "bg-white text-blue-700 shadow"
+                    ? "text-white shadow"
                     : "text-blue-100 hover:bg-white/[0.12] hover:text-white"
                 )
               }
@@ -188,10 +189,10 @@ export default function Leaderboard() {
             <Tab
               className={({ selected }) =>
                 classNames(
-                  "w-full rounded-lg py-2.5 text-sm font-medium leading-5",
+                  "bg-emerald-600 w-full rounded-lg py-2.5 text-sm font-medium leading-5",
                   "ring-white/60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2",
                   selected
-                    ? "bg-white text-blue-700 shadow"
+                    ? "text-white shadow"
                     : "text-blue-100 hover:bg-white/[0.12] hover:text-white"
                 )
               }
@@ -202,10 +203,10 @@ export default function Leaderboard() {
             <Tab
               className={({ selected }) =>
                 classNames(
-                  "w-full rounded-lg py-2.5 text-sm font-medium leading-5",
+                  "bg-green-600 w-full rounded-lg py-2.5 text-sm font-medium leading-5",
                   "ring-white/60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2",
                   selected
-                    ? "bg-white text-blue-700 shadow"
+                    ? "text-white shadow"
                     : "text-blue-100 hover:bg-white/[0.12] hover:text-white"
                 )
               }
@@ -216,10 +217,10 @@ export default function Leaderboard() {
             <Tab
               className={({ selected }) =>
                 classNames(
-                  "w-full rounded-lg py-2.5 text-sm font-medium leading-5",
+                  "bg-lime-600 w-full rounded-lg py-2.5 text-sm font-medium leading-5",
                   "ring-white/60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2",
                   selected
-                    ? "bg-white text-blue-700 shadow"
+                    ? "text-white shadow"
                     : "text-blue-100 hover:bg-white/[0.12] hover:text-white"
                 )
               }
@@ -230,10 +231,10 @@ export default function Leaderboard() {
             <Tab
               className={({ selected }) =>
                 classNames(
-                  "w-full rounded-lg py-2.5 text-sm font-medium leading-5",
+                  "bg-yellow-600 w-full rounded-lg py-2.5 text-sm font-medium leading-5",
                   "ring-white/60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2",
                   selected
-                    ? "bg-white text-blue-700 shadow"
+                    ? "bg-white text-white shadow"
                     : "text-blue-100 hover:bg-white/[0.12] hover:text-white"
                 )
               }
@@ -244,10 +245,10 @@ export default function Leaderboard() {
             <Tab
               className={({ selected }) =>
                 classNames(
-                  "w-full rounded-lg py-2.5 text-sm font-medium leading-5",
+                  "bg-amber-600 w-full rounded-lg py-2.5 text-sm font-medium leading-5",
                   "ring-white/60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2",
                   selected
-                    ? "bg-white text-blue-700 shadow"
+                    ? "text-white shadow"
                     : "text-blue-100 hover:bg-white/[0.12] hover:text-white"
                 )
               }
@@ -258,10 +259,10 @@ export default function Leaderboard() {
             <Tab
               className={({ selected }) =>
                 classNames(
-                  "w-full rounded-lg py-2.5 text-sm font-medium leading-5",
+                  "bg-red-600 w-full rounded-lg py-2.5 text-sm font-medium leading-5",
                   "ring-white/60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2",
                   selected
-                    ? "bg-white text-blue-700 shadow"
+                    ? "text-white shadow"
                     : "text-blue-100 hover:bg-white/[0.12] hover:text-white"
                 )
               }
@@ -348,6 +349,7 @@ export default function Leaderboard() {
             </Tab.Panel>
           </Tab.Panels>
         </Tab.Group>
+        </div>
       )}
     </>
   );

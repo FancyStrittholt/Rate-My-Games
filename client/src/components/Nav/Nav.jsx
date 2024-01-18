@@ -2,6 +2,10 @@ import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { updateUser } from "../../app/slice";
+import { GiTrophyCup } from "react-icons/gi";
+import { SlGameController } from "react-icons/sl";
+import { BiSolidUserAccount } from "react-icons/bi";
+import { IoMdLogOut } from "react-icons/io";
 
 export default function Nav() {
   const token = useSelector((it) => it.state.user?.token);
@@ -10,20 +14,20 @@ export default function Nav() {
 
   function logout() {
     navigate("/");
-    dispatch(updateUser(''));
+    dispatch(updateUser(""));
   }
   return (
     <>
-      <div className='bg-fuchsia-600 flex items-center justify-between text-[#f5f5f5] pl-[25px] pr-[25px] font-medium'>
+      <div className="bg-purple-950 flex items-center justify-between text-[#f5f5f5] pl-[25px] pr-[25px] pt-3 pb-3 font-medium">
         <div>
-          <h2>Rate My Games</h2>
+          <h2 className="text-2xl">Rate My Games</h2>
         </div>
         <div className="flex gap-[10px]">
-          <span className="material-icons">sports_esports</span>
-          <Link to="/">Games</Link>
+          <SlGameController className="text-[#c026d3]" />
+          <Link className='text-[#c026d3]' to="/">Games</Link>
 
-          <span className="material-icons">sports_esports</span>
-          <Link to="/leaderboard">Leaderboard</Link>
+          <GiTrophyCup className='text-orange-600'/>
+          <Link className='text-orange-600' to="/leaderboard">Leaderboard</Link>
 
           {!token && (
             <>
@@ -34,8 +38,8 @@ export default function Nav() {
 
           {token && (
             <>
-              <span className="material-icons">account_circle</span>
-              <Link to="/account">Account</Link>
+              <BiSolidUserAccount className='text-blue-600'/>
+              <Link className='text-blue-600' to="/account">Account</Link>
             </>
           )}
 
@@ -48,7 +52,7 @@ export default function Nav() {
 
           {token && (
             <>
-              <span className="material-icons">logout</span>
+              <IoMdLogOut>Logout</IoMdLogOut>
               <a onClick={() => logout()} to="/">
                 Logout
               </a>
