@@ -1,5 +1,4 @@
 const { Client } = require('pg');
-const dbName = 'videogames';
-const client = new Client(`postgres://localhost:5432/${dbName}`);
+const client = new Client(process.env.DB_URL);
 
 module.exports = client;
