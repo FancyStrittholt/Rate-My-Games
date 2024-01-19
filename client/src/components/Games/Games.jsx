@@ -97,14 +97,14 @@ export default function Games() {
 
   return (
     <>
-      <div className='pl-2'>
+      <div className='pl-10'>
         <div className={styles["search-container"]}>
           <input
             type="text"
             onChange={(event) => setSearch(event.target.value)}
-          ></input>
+            ></input>
           <span className="material-icons">search</span>
-          <label>Search by Name, Developer or Publisher</label>
+            <label>Search by Name, Developer or Publisher</label>
         </div>
       </div>
       <div>
