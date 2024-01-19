@@ -6,6 +6,7 @@ import GameCard from "../common/GameCard";
 import { Dialog, Transition, RadioGroup } from "@headlessui/react";
 import { useUpdatePicMutation } from "../../../api/gamesApi";
 import { updateUser } from "../../app/slice";
+import stars from "../../assets/images/stars.mp4";
 
 const pics = [
   "lara.png",
@@ -31,7 +32,7 @@ const pics = [
   "red.png",
   "mario.png",
   "robo.png",
-  "hotdog.png"
+  "hotdog.png",
 ];
 
 export default function Account() {
@@ -39,7 +40,6 @@ export default function Account() {
   const votes = useSelector((it) => it.state.votes);
   const games = useSelector((it) => it.state.games);
   let [isOpen, setIsOpen] = useState(false);
-  const [selected, setSelected] = useState(pics[0]);
   const [updatePic] = useUpdatePicMutation();
   const dispatch = useDispatch();
 
@@ -68,10 +68,10 @@ export default function Account() {
     setIsOpen(true);
   }
 
-  async function updateAvatar() {
+  async function updateAvatar(pic) {
     const updatedUser = await updatePic({
       id: user.id,
-      pic: selected,
+      pic: pic,
       token: user.token,
     });
     dispatch(updateUser(updatedUser.data));
@@ -80,21 +80,33 @@ export default function Account() {
 
   return (
     <>
-      <img
-        width={150}
-        height={150}
-        className={styles["profile-pic"]}
-        src={
-          new URL(`../../assets/images/profile/${user.pic}`, import.meta.url)
-            .href
-        }
-      ></img>
-      <button onClick={() => openModal()}>Edit Profile Picture</button>
-      <div>
-        {user.username}
-        <br />
-        {user.email}
+      <div className="flex flex-row items-center gap-10">
+        <div>
+          <img
+            width={150}
+            height={150}
+            className={styles["profile-pic"]}
+            src={
+              new URL(
+                `../../assets/images/profile/${user.pic}`,
+                import.meta.url
+              ).href
+            }
+          ></img>
+        </div>
+        <div className="text-fuchsia-600">
+          {user.username}
+          <br />
+          {user.email}
+        </div>
       </div>
+      <button
+        className="text-fuchsia-600 border-solid border-2 border-sky-500 pl-4 pr-4"
+        onClick={() => openModal()}
+      >
+        Edit
+      </button>
+
       <div>
         <h2>My fave games</h2>
         {
@@ -129,21 +141,28 @@ export default function Account() {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="w-full max-w-8xl transform overflow-hidden rounded-2xl bg-cyan-600 p-6 text-left align-middle shadow-xl transition-all">
+                <Dialog.Panel className="w-full max-w-8xl transform overflow-hidden rounded-2xl bg-black text-center align-middle shadow-xl transition-all">
                   <Dialog.Title
                     as="h3"
-                    className="text-lg font-medium leading-6 text-gray-900"
+                    className="text-lg font-medium leading-6 text-purple-200"
                   >
                     Choose your avatar
                   </Dialog.Title>
                   <div className="mt-2">
-                    <RadioGroup
-                      value={selected}
-                      onChange={setSelected}
-                      className="flex flex-wrap gap-5"
-                    >
+                    <video
+                      src={stars}
+                      autoPlay={true}
+                      loop
+                      muted
+                      className="absolute -z-10 w-auto min-w-full min-h-full max-w-none"
+                    ></video>
+                    <RadioGroup className="flex flex-wrap gap-5 pl-5 pt-5">
                       {pics.map((pic) => (
-                        <RadioGroup.Option key={pic} value={pic}>
+                        <RadioGroup.Option
+                          onClick={() => updateAvatar(pic)}
+                          key={pic}
+                          value={pic}
+                        >
                           {({ active, checked }) => (
                             <>
                               <img
@@ -172,16 +191,6 @@ export default function Account() {
                         </RadioGroup.Option>
                       ))}
                     </RadioGroup>
-                  </div>
-
-                  <div className="mt-4 flex justify-end">
-                    <button
-                      type="button"
-                      className="inline-flex justify-center rounded-md border border-transparent bg-fuchsia-300 px-4 py-2 text-sm font-medium text-fuchsia-800 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-                      onClick={updateAvatar}
-                    >
-                      Save
-                    </button>
                   </div>
                 </Dialog.Panel>
               </Transition.Child>

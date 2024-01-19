@@ -23,6 +23,7 @@ body > div {
 #main-section {
   flex-grow: 1;
   background-color: black;
+  padding-left: 25px;
 }
 
 #main-section > div {
