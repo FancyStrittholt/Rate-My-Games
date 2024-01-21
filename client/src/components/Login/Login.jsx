@@ -23,6 +23,7 @@ export default function Login() {
 
     const response = await login({ username, password });
     dispatch(updateUser(response.data));
+    console.log(error);
   };
 
   return (
@@ -32,7 +33,7 @@ export default function Login() {
           <h3 className="text-2xl p-5">Please Login</h3>
           <form
             onSubmit={onLogin}
-            className="p-5 flex flex-col justify-center items-center relative pb-28 gap-4"
+            className="p-5 flex flex-col justify-center items-center relative pb-24 gap-4"
           >
             <div>
               <label className="username">Username</label>
@@ -55,6 +56,7 @@ export default function Login() {
                 name="Password"
               />
             </div>
+            {error?.data && <p className="error">{error?.data}</p>}
             <div className="absolute bottom-0 right-0 pr-8">
               <button
                 className="border-solid border-2 border-sky-500 bg-sky-900 pl-1 pr-1 rounded hover:bg-sky-800"
@@ -65,9 +67,6 @@ export default function Login() {
               </button>
             </div>
           </form>
-          {error?.data?.message && (
-            <p className="error">{error?.data?.message}</p>
-          )}
         </div>
       </div>
     </>

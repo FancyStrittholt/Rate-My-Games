@@ -26,7 +26,7 @@ export default function SingleGame() {
     <>
       <div className="flex justify-center items-center mt-10">
         <div
-          className="w-[500px] border-2 border-fuchsia-500 rounded-md bg-purple-800 p-[15px] text-cyan-200 flex flex-col justify-between px-[10px] pt-[10px] gap-5"
+          className="w-[500px] border-2 border-fuchsia-500 rounded-md bg-purple-600 p-[15px] text-cyan-200 flex flex-col justify-between px-[10px] pt-[10px] gap-5"
           key={data.id}
         >
           <h2 className="text-cyan-500 text-2xl"> {data.name} </h2>
@@ -44,7 +44,7 @@ export default function SingleGame() {
           </div>
           <p>
             Get Game Now:{" "}
-            <a rel="noreferrer" href={data.link} target="_blank">
+            <a className='text-blue-700' rel="noreferrer" href={data.link} target="_blank">
               {data.link}
             </a>
           </p>

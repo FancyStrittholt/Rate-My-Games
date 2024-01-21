@@ -5,7 +5,6 @@ async function dropTables() {
     console.log('Dropping All Tables...');
     await client.query(`
       DROP TABLE IF EXISTS games;
-      DROP TABLE IF EXISTS leaderboard;
       DROP TABLE IF EXISTS users;
       DROP TABLE IF EXISTS votes;
       DROP TABLE IF EXISTS tags;
@@ -27,12 +26,6 @@ async function createTables() {
         description TEXT NOT NULL,
         image VARCHAR(255) NOT NULL,
         link VARCHAR(255) NOT NULL
-        );
-      CREATE TABLE leaderboard (
-        id SERIAL PRIMARY KEY,
-        type VARCHAR(255) NOT NULL,
-        gameid INTEGER NOT NULL,
-        votes INTEGER NOT NULL
         );
       CREATE TABLE users (
         id SERIAL PRIMARY KEY,
