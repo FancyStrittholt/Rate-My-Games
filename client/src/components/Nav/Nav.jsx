@@ -20,41 +20,51 @@ export default function Nav() {
   }
   return (
     <>
-      <div className="bg-purple-950 flex items-center justify-between text-[#e879f9] pl-[25px] pr-[25px] pt-3 pb-3 font-medium">
+      <div className="bg-gray-950 flex items-center justify-between text-[#e879f9] pl-[25px] pr-[25px] pt-1 pb-1 font-medium">
         <div>
-          <h2 className="text-3xl pl-10">Rate My Games</h2>
+          <Link to="/">
+            <h2 className="text-2xl pl-10">Video Game Database</h2>
+          </Link>
         </div>
         <div className="flex gap-[10px] pr-5">
-          <SlGameController className="text-[#c026d3] size-6"/>
-          <Link className='text-[#c026d3]' to="/">Games</Link>
+          <SlGameController className="text-[#c026d3] size-6" />
+          <Link className="text-[#c026d3]" to="/games">
+            Games
+          </Link>
 
-          <GiTrophyCup className='text-amber-600 size-6'/>
-          <Link className='text-amber-600' to="/leaderboard">Leaderboard</Link>
+          <GiTrophyCup className="text-amber-600 size-6" />
+          <Link className="text-amber-600" to="/leaderboard">
+            Leaderboard
+          </Link>
 
           {!token && (
             <>
-              <GiArchiveRegister className='text-blue-600 size-6'/>
-              <Link className='text-blue-600' to="/register">Register</Link>
+              <GiArchiveRegister className="text-blue-600 size-6" />
+              <Link className="text-blue-600" to="/register">
+                Register
+              </Link>
             </>
           )}
 
           {token && (
             <>
-              <BiSolidUserAccount className='text-blue-600 size-6'/>
-              <Link className='text-blue-600' to="/account">Account</Link>
+              <BiSolidUserAccount className="text-blue-600 size-6" />
+              <Link className="text-blue-600" to="/account">
+                Account
+              </Link>
             </>
           )}
 
           {!token && (
             <>
-              <IoMdLogIn className='size-6'/>
+              <IoMdLogIn className="size-6" />
               <Link to="/login">Login</Link>
             </>
           )}
 
           {token && (
             <>
-              <IoMdLogOut className='size-6'/>
+              <IoMdLogOut className="size-6" />
               <a onClick={() => logout()} to="/">
                 Logout
               </a>

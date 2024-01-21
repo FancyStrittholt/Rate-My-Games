@@ -12,7 +12,7 @@ export default function App() {
     return (
         <>
             <div id='container'>
-                <Nav />
+                    <Nav />
                 <div id='main-section'>
                     {
                         <Routes>

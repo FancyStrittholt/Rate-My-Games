@@ -22,10 +22,18 @@ body > div {
 
 #main-section {
   flex-grow: 1;
-  background-color: black;
-  padding-left: 25px;
+  background-color: #030712;
 }
 
 #main-section > div {
   width: 100%;
 }
+
+.hero-background {
+  background-image: url("../src/assets/images/bgimage.png");
+  background-position: center; 
+  background-repeat: no-repeat; 
+  background-size: cover; 
+}
+
+
