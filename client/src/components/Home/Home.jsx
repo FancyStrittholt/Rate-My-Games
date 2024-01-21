@@ -54,7 +54,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="p-16 bg-cyan-900">
+        <div className="p-16 bg-indigo-900">
           <div className="flex gap-10 justify-around">
             <div>
               <img
@@ -69,7 +69,7 @@ export default function Home() {
             </div>
             <div className="flex flex-col justify-center items-center w-[550px] gap-10">
               <h2 className="text-white text-6xl">View Games</h2>
-              <p className="text-gray-400">
+              <p className="text-gray-300">
                 View an extensive database of games of all genres. See a
                 description of each game and a link to learn more or try the
                 game out for yourself.
@@ -126,7 +126,7 @@ export default function Home() {
                   <p className="text-lg font-bold text-white">Sea of Stars</p>
                 </div>
                 <div>
-                  <p className="text-sm text-white">
+                  <p className="text-sm text-gray-400">
                     Sea of Stars is a turn-based RPG inspired by the classics.
                     It tells the story of two Children of the Solstice who will
                     combine the powers of the sun and moon to perform Eclipse
@@ -155,7 +155,7 @@ export default function Home() {
                   </p>
                 </div>
                 <div>
-                  <p className="text-sm text-white">
+                  <p className="text-sm text-gray-400">
                     The Final Shape looms, a nightmarish calcification of
                     reality into the Witnesss twisted design. Embark on a
                     perilous journey into the heart of the Traveler, rally the
@@ -183,7 +183,7 @@ export default function Home() {
                   </p>
                 </div>
                 <div>
-                  <p className="text-sm text-white">
+                  <p className="text-sm text-gray-400">
                     In the game, the player takes on the role of a character
                     called the "Arisen", a hero marked by a dragon who they must
                     defeat, all while exploring the world they live in, taking
@@ -210,7 +210,7 @@ export default function Home() {
                   <p className="text-lg font-bold text-white">Enshrouded</p>
                 </div>
                 <div>
-                  <p className="text-sm text-white">
+                  <p className="text-sm text-gray-400">
                     Enshrouded is a game of survival, crafting, and Action RPG
                     combat, set within a sprawling voxel-based continent. As you
                     journey across the mountains and deserts of an open world,
@@ -225,7 +225,7 @@ export default function Home() {
         <hr className="border-0 bg-indigo-800 rounded w-2/3 h-1 mx-auto" />
 
         {/* recommended indie games */}
-        <div className="w-full  gap-5 flex flex-col justify-center items-center">
+        <div className="w-full  gap-5 flex flex-col justify-center items-center mb-10">
           <div>
             <h2 className="text-4xl text-white">Recommended Indie Games</h2>
           </div>
@@ -343,7 +343,6 @@ export default function Home() {
           </div>
         </div>
 
-        <hr className="border-0 bg-indigo-800 rounded w-2/3 h-1 mx-auto" />
       </div>
     </>
   );

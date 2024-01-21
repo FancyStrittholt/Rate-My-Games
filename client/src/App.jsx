@@ -7,6 +7,7 @@ import Register from './components/Register/Register.jsx';
 import Account from './components/Account/Account';
 import Leaderboard from './components/Leaderboard/Leaderboard.jsx';
 import Nav from './components/Nav/Nav.jsx';
+import Footer from './components/Footer/Footer.jsx';
 
 export default function App() {
     return (
@@ -26,6 +27,7 @@ export default function App() {
                         </Routes>
                     }
                 </div>
+                <Footer/>
             </div>
         </>
     );
