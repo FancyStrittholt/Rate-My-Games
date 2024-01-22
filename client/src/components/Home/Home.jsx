@@ -44,10 +44,8 @@ export default function Home() {
               <img
                 className="h-[500px] w-[800px] border-2 border-indigo-950 rounded-lg"
                 src={
-                  new URL(
-                    `../../assets/images/profile.png`,
-                    import.meta.url
-                  ).href
+                  new URL(`../../assets/images/profile.png`, import.meta.url)
+                    .href
                 }
               ></img>
             </div>
@@ -60,10 +58,8 @@ export default function Home() {
               <img
                 className="h-[500px] w-[800px] border-2 border-indigo-950 rounded-lg"
                 src={
-                  new URL(
-                    `../../assets/images/viewgames.png`,
-                    import.meta.url
-                  ).href
+                  new URL(`../../assets/images/viewgames.png`, import.meta.url)
+                    .href
                 }
               ></img>
             </div>
@@ -92,10 +88,7 @@ export default function Home() {
               <img
                 className="h-[500px] w-[800px] border-2 border-indigo-950 rounded-lg"
                 src={
-                  new URL(
-                    `../../assets/images/vote.png`,
-                    import.meta.url
-                  ).href
+                  new URL(`../../assets/images/vote.png`, import.meta.url).href
                 }
               ></img>
             </div>
@@ -230,29 +223,28 @@ export default function Home() {
             <h2 className="text-4xl text-white">Recommended Indie Games</h2>
           </div>
           <div className="flex gap-2">
-            <Link to="https://seaofstarsgame.co/">
+            <Link to="https://tombstonemmo.com/">
               <div className="w-[350px] flex flex-col gap-3 justify-center items-center hover:bg-indigo-950 p-2 hover:border-l-2 hover:border-indigo-700">
                 <div>
                   <img
                     className="w-[350px] h-[200px]"
                     src={
                       new URL(
-                        `../../assets/images/seaofstars.png`,
+                        `../../assets/images/SteamMain_1.png`,
                         import.meta.url
                       ).href
                     }
                   ></img>
                 </div>
                 <div>
-                  <p className="text-lg font-bold text-white">Sea of Stars</p>
+                  <p className="text-lg font-bold text-white">Tombstone MMO</p>
                 </div>
                 <div>
                   <p className="text-sm text-white">
-                    Sea of Stars is a turn-based RPG inspired by the classics.
-                    It tells the story of two Children of the Solstice who will
-                    combine the powers of the sun and moon to perform Eclipse
-                    Magic, the only force capable of fending off the monstrous
-                    creations of the evil alchemist known as The Fleshmancer.
+                    With a post-apocalyptic world that’s been ravaged by beasts
+                    and overgrown by nature, Tombstone continues to thrill
+                    players with an adventure unlike any other. What secrets
+                    does this wasteland hold?
                   </p>
                 </div>
               </div>
@@ -264,7 +256,7 @@ export default function Home() {
                     className="w-[350px] h-[200px]"
                     src={
                       new URL(
-                        `../../assets/images/destiny2.png`,
+                        `../../assets/images/dragons.png`,
                         import.meta.url
                       ).href
                     }
@@ -272,77 +264,75 @@ export default function Home() {
                 </div>
                 <div>
                   <p className="text-lg font-bold text-white">
-                    Destiny 2: The Final Shape
+                    Dragons vs Dead
                   </p>
                 </div>
                 <div>
                   <p className="text-sm text-white">
-                    The Final Shape looms, a nightmarish calcification of
-                    reality into the Witnesss twisted design. Embark on a
-                    perilous journey into the heart of the Traveler, rally the
-                    Vanguard, and end the War of Light and Darkness.
+                    The world has been nearly destroyed. Just when it seems the
+                    dead have won, they came from within the Earth. Thought to
+                    be lost, dragons are here to fight against evil to save what
+                    is left of the dying planet. What little humanoids and elves
+                    are left, do their best to help the dragons win.
                   </p>
                 </div>
               </div>
             </Link>
-            <Link to="https://www.dragonsdogma.com/2/en-us/">
+            <Link to="https://fancyschillspot.com/">
               <div className="w-[350px] flex flex-col gap-3 justify-center items-center hover:bg-indigo-950 p-2 hover:border-l-2 hover:border-indigo-700">
                 <div>
                   <img
                     className="w-[350px] h-[200px]"
                     src={
                       new URL(
-                        `../../assets/images/dragonsdogma2.png`,
+                        `../../assets/images/fancyisle.png`,
                         import.meta.url
                       ).href
                     }
                   ></img>
                 </div>
                 <div>
-                  <p className="text-lg font-bold text-white">
-                    Dragons Dogma 2
-                  </p>
+                  <p className="text-lg font-bold text-white">Fancy Isle</p>
                 </div>
                 <div>
                   <p className="text-sm text-white">
-                    In the game, the player takes on the role of a character
-                    called the "Arisen", a hero marked by a dragon who they must
-                    defeat, all while exploring the world they live in, taking
-                    on quests, and fighting monsters, in the process being
-                    caught up in a geopolitical conflict between two kingdoms.
+                    Create your character and then design your world in this new
+                    VR game. Level skills like survival, crafting, cooking,
+                    mining and more. There is always more to do in this escape
+                    from reality.
                   </p>
                 </div>
               </div>
             </Link>
-            <Link to="https://enshrouded.com/">
+            <Link to="https://store.steampowered.com/app/1259000/Damascus/">
               <div className="w-[350px] flex flex-col gap-3 justify-center items-center hover:bg-indigo-950 p-2 hover:border-l-2 hover:border-indigo-700">
                 <div>
                   <img
                     className="w-[350px] h-[200px]"
                     src={
                       new URL(
-                        `../../assets/images/enshrouded.png`,
+                        `../../assets/images/Damascus.png`,
                         import.meta.url
                       ).href
                     }
                   ></img>
                 </div>
                 <div>
-                  <p className="text-lg font-bold text-white">Enshrouded</p>
+                  <p className="text-lg font-bold text-white">Damascus</p>
                 </div>
                 <div>
                   <p className="text-sm text-white">
-                    Enshrouded is a game of survival, crafting, and Action RPG
-                    combat, set within a sprawling voxel-based continent. As you
-                    journey across the mountains and deserts of an open world,
-                    you are free to choose your path and shape your destiny.
+                    Damascus is a pixel-art MMORPG created by two guys. Create a
+                    unique character and explore the strange and fantastic world
+                    that is before you. Train any of your 19 different skills.
+                    Chat and trade with other players. Make friends and slay all
+                    sorts of Dragons!
                   </p>
                 </div>
               </div>
             </Link>
           </div>
         </div>
-
       </div>
     </>
   );
