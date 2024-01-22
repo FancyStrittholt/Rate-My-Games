@@ -104,7 +104,7 @@ export default function Games() {
             onChange={(event) => setSearch(event.target.value)}
             ></input>
           <span className="material-icons">search</span>
-            <label>Search by Name, Developer or Publisher</label>
+            <label className='text-[#dd784b]'>Search Name/Developer/Publisher</label>
         </div>
       </div>
       <div>

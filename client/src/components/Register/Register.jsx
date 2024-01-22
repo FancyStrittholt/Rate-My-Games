@@ -68,16 +68,16 @@ export default function Register() {
   };
 
   return (
-    <div className="flex justify-center items-center mt-[10%]">
-      <div className="bg-purple-400 w-[500px] h-[400px] border-2 border-green-300 rounded-md">
-        <h3 className="text-2xl p-5">Create an Account</h3>
+    <div className="flex justify-center items-center mt-10">
+      <div className="form w-[500px] h-[400px] border-2 border-[#b35d93] rounded-md">
+        <h3 className="text-2xl text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] p-5">Create an Account</h3>
 
         <form
           className="p-5 flex flex-col justify-center items-center relative pb-28 gap-4"
           onSubmit={onRegister}
         >
           <div>
-            <label>Username</label>
+            <label className='text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]'>Username</label>
             <br />
             <input
               autoFocus
@@ -88,7 +88,7 @@ export default function Register() {
             />
           </div>
           <div>
-            <label>Email</label>
+            <label className='text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]'>Email</label>
             <br />
             <input
               type="text"
@@ -98,7 +98,7 @@ export default function Register() {
             />
           </div>
           <div>
-            <label>Password</label>
+            <label className='text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]'>Password</label>
             <br />
             <input
               type="text"

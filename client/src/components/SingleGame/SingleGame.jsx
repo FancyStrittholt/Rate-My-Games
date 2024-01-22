@@ -24,15 +24,15 @@ export default function SingleGame() {
 
   return (
     <>
-      <div className="flex justify-center items-center mt-10">
+      <div className="flex justify-center items-center mb-10">
         <div
-          className="w-[500px] border-2 border-fuchsia-500 rounded-md bg-purple-600 p-[15px] text-cyan-200 flex flex-col justify-between px-[10px] pt-[10px] gap-5"
+          className="w-[600px] border-2 border-fuchsia-500 rounded-md bg-purple-600 p-[15px] text-cyan-200 flex flex-col justify-between px-[10px] pt-[10px] gap-5"
           key={data.id}
         >
           <h2 className="text-cyan-500 text-2xl"> {data.name} </h2>
           <img
             width={500}
-            className='h-[300px]'
+            className='h-[350px]'
             src={
               new URL(`../../assets/images/${data.image}`, import.meta.url).href
             }

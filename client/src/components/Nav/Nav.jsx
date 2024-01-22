@@ -20,20 +20,26 @@ export default function Nav() {
   }
   return (
     <>
-      <div className="bg-gray-950 flex items-center justify-between text-[#e879f9] pl-[25px] pr-[25px] pt-1 pb-1 font-medium">
-        <div>
+      <div className="bg-gray-900 flex items-center justify-between text-[#d06ec1] pl-[25px] pr-[25px] pt-1 pb-1 font-medium">
+        <div className="flex justify-center items-center">
           <Link to="/">
-            <h2 className="text-2xl pl-10">Video Game Database</h2>
+            <img
+              className="h-[70px]"
+              src={
+                new URL(`../../assets/images/logo.png`, import.meta.url).href
+              }
+            ></img>
           </Link>
+          <h2>VGDB</h2>
         </div>
         <div className="flex gap-[10px] pr-5">
-          <SlGameController className="text-[#c026d3] size-6" />
-          <Link className="text-[#c026d3]" to="/games">
+          <SlGameController className="text-[#d06ec1] size-6" />
+          <Link className="text-[#d06ec1]" to="/games">
             Games
           </Link>
 
-          <GiTrophyCup className="text-amber-600 size-6" />
-          <Link className="text-amber-600" to="/leaderboard">
+          <GiTrophyCup className="text-[#dd784b] size-6" />
+          <Link className="text-[#dd784b]" to="/leaderboard">
             Leaderboard
           </Link>
 

@@ -22,7 +22,6 @@ body > div {
 
 #main-section {
   flex-grow: 1;
-  background-color: #030712;
 }
 
 #main-section > div {
@@ -34,6 +33,10 @@ body > div {
   background-position: center; 
   background-repeat: no-repeat; 
   background-size: cover; 
+}
+
+.form{
+  background-image: url('../src/assets/images/form.png');
 }
 
 

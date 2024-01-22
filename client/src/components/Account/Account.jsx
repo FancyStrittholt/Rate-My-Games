@@ -80,7 +80,7 @@ export default function Account() {
 
   return (
     <>
-      <div className="flex flex-row items-center gap-10">
+      <div className="flex flex-row justify-center items-center gap-10">
         <div>
           <img
             width={150}
@@ -94,7 +94,7 @@ export default function Account() {
             }
           ></img>
         </div>
-        <div className="text-fuchsia-600">
+        <div className="text-fuchsia-600 text-5xl">
           {user.username}
           <br />
           {user.email}

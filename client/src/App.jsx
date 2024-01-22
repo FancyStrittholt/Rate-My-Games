@@ -14,7 +14,7 @@ export default function App() {
         <>
             <div id='container'>
                     <Nav />
-                <div id='main-section'>
+                <div className='bg-gray-950' id='main-section'>
                     {
                         <Routes>
                             <Route path='/' element={<Home />}></Route>
