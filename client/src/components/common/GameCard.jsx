@@ -67,7 +67,7 @@ export default function GameCard(data) {
     return (
       <>
         <div key={data.game.id} className={styles["game-card"]}>
-          <h2 className="text-cyan-500 text-2xl">{data.game.name}</h2>
+          <h2 className="text-cyan-400 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] text-2xl">{data.game.name}</h2>
           <img
             width='350'
             className="h-[200px]"
@@ -76,17 +76,17 @@ export default function GameCard(data) {
                 .href
             }
           ></img>
-          <div className='text-cyan-200 flex flex-row justify-between px-[10px] pt-[10px] items-end'>
+          <div className='text-cyan-200  flex flex-row justify-between px-[10px] pt-[10px] items-end'>
             <div>
               <button
                 value={data.game.id}
                 onClick={(event) => showDetails(event)}
-                className="border-solid border-2 border-sky-500 bg-sky-900 pl-1 pr-1 rounded"
+                className="text-black border-solid border-2 border-sky-900 bg-sky-500 pl-1 pr-1 rounded hover:bg-sky-300 hover:border-sky-700"
               >
                 Show Details
               </button>
             </div>
-            <div>{numberOfVotes ? numberOfVotes : 0} Likes</div>
+            <div className=' text-purple-100 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]'>{numberOfVotes ? numberOfVotes : 0} Likes</div>
               {userId && (
                 <>
                   {haveVoted ? (

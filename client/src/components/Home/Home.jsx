@@ -45,7 +45,7 @@ export default function Home() {
                 className="h-[500px] w-[800px] border-2 border-indigo-950 rounded-lg"
                 src={
                   new URL(
-                    `../../assets/images/tempprofile.png`,
+                    `../../assets/images/profile.png`,
                     import.meta.url
                   ).href
                 }
@@ -61,7 +61,7 @@ export default function Home() {
                 className="h-[500px] w-[800px] border-2 border-indigo-950 rounded-lg"
                 src={
                   new URL(
-                    `../../assets/images/tempprofile.png`,
+                    `../../assets/images/viewgames.png`,
                     import.meta.url
                   ).href
                 }
@@ -93,7 +93,7 @@ export default function Home() {
                 className="h-[500px] w-[800px] border-2 border-indigo-950 rounded-lg"
                 src={
                   new URL(
-                    `../../assets/images/tempprofile.png`,
+                    `../../assets/images/vote.png`,
                     import.meta.url
                   ).href
                 }

@@ -97,7 +97,7 @@ export default function Games() {
 
   return (
     <>
-      <div className='pl-10'>
+      <div className='flex justify-end items-center pr-[40px] pt-2'>
         <div className={styles["search-container"]}>
           <input
             type="text"

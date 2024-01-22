@@ -80,7 +80,7 @@ export default function Account() {
 
   return (
     <>
-      <div className="flex flex-row justify-center items-center gap-10">
+      <div className="p- flex flex-row justify-center items-center gap-10">
         <div>
           <img
             width={150}
@@ -93,22 +93,23 @@ export default function Account() {
               ).href
             }
           ></img>
+          <button
+            className="text-sm text-fuchsia-600 border-solid border-2 border-sky-500 pl-4 pr-4"
+            onClick={() => openModal()}
+          >
+            Edit
+          </button>
         </div>
-        <div className="text-fuchsia-600 text-5xl">
+        <div className="text-fuchsia-600 text-4xl">
           {user.username}
           <br />
           {user.email}
         </div>
       </div>
-      <button
-        className="text-fuchsia-600 border-solid border-2 border-sky-500 pl-4 pr-4"
-        onClick={() => openModal()}
-      >
-        Edit
-      </button>
-
+      <div className='text-3xl flex justify-center items-center pt-8'>
+        <h2 className="text-cyan-600">My favorite games</h2>
+      </div>
       <div>
-        <h2>My fave games</h2>
         {
           <div className={styles["game-container"]}>
             {votes && createMyGames()}
@@ -127,7 +128,7 @@ export default function Account() {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <div className="fixed inset-0 bg-black/25" />
+            <div className="fixed inset-0" />
           </Transition.Child>
 
           <div className="fixed inset-0 overflow-y-auto">
@@ -144,7 +145,7 @@ export default function Account() {
                 <Dialog.Panel className="w-full max-w-8xl transform overflow-hidden rounded-2xl bg-black text-center align-middle shadow-xl transition-all">
                   <Dialog.Title
                     as="h3"
-                    className="text-lg font-medium leading-6 text-purple-200"
+                    className="text-xl font-medium leading-6 text-purple-200"
                   >
                     Choose your avatar
                   </Dialog.Title>
@@ -175,10 +176,10 @@ export default function Account() {
                                 }
                                       ${
                                         checked
-                                          ? "border-sky-900/75 text-white"
-                                          : "border-white"
+                                          ? "border-purple-900/75 text-white"
+                                          : "border-pink-900"
                                       }
-                                      relative flex cursor-pointer rounded-full shadow-md focus:outline-none`}
+                                      relative flex cursor-pointer rounded-full shadow-md focus:outline-none ring-2 ring-indigo-950 ring-offset-2 ring-offset-indigo-600`}
                                 src={
                                   new URL(
                                     `../../assets/images/profile/${pic}`,
