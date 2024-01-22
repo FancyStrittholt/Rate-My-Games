@@ -26,13 +26,13 @@ export default function SingleGame() {
     <>
       <div className="flex justify-center items-center mb-10">
         <div
-          className="w-[600px] border-2 border-fuchsia-500 rounded-md bg-purple-600 p-[15px] text-cyan-200 flex flex-col justify-between px-[10px] pt-[10px] gap-5"
+          className="w-[500px] border-2 border-fuchsia-500 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 p-[15px] text-black font-bold flex flex-col justify-between px-[10px] pt-[10px] gap-3"
           key={data.id}
         >
-          <h2 className="text-cyan-500 text-2xl"> {data.name} </h2>
+          <h2 className="text-cyan-400 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] text-2xl"> {data.name} </h2>
           <img
             width={500}
-            className='h-[350px]'
+            className='h-[300px]'
             src={
               new URL(`../../assets/images/${data.image}`, import.meta.url).href
             }
@@ -44,7 +44,7 @@ export default function SingleGame() {
           </div>
           <p>
             Get Game Now:{" "}
-            <a className='text-blue-700' rel="noreferrer" href={data.link} target="_blank">
+            <a className='text-blue-900 text-sm' rel="noreferrer" href={data.link} target="_blank">
               {data.link}
             </a>
           </p>
