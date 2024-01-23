@@ -99,7 +99,7 @@ export default function Games() {
     <>
       <div className='flex justify-end items-center pr-[40px] pt-2'>
         <div className={styles["search-container"]}>
-          <input
+          <input className='text-black'
             type="text"
             onChange={(event) => setSearch(event.target.value)}
             ></input>

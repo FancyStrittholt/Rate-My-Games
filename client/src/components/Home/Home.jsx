@@ -33,7 +33,7 @@ export default function Home() {
             <div className="flex flex-col justify-center items-center w-[550px] gap-10">
               <h2 className="text-white text-6xl">Create an Account!</h2>
               <p className="text-gray-400">
-                Register and account to be able to manage your favorite video
+                Register an account to be able to manage your favorite video
                 games. Choose an avitar to personalize your profile.
               </p>
               <Link className="bg-indigo-600 p-3 rounded-full text-lg px-8 text-white border-[1px] border-indigo-200 hover:bg-indigo-500 hover:border-indigo-600">
@@ -81,7 +81,7 @@ export default function Home() {
               <p className="text-gray-400">
                 Vote on your favorite games. View a leaderboard for each genre
                 of game, MMO, multiplayer, FPS and many more! Will your favorite
-                game be number be at the top?
+                game be at the top?
               </p>
             </div>
             <div>

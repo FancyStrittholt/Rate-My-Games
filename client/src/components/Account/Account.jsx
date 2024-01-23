@@ -301,7 +301,7 @@ export default function Account() {
                       className="absolute -z-10 w-auto min-w-full min-h-full max-w-none"
                     ></video>
 
-                    <div className="flex flex-col justify-center items-center gap-2">
+                    <div className="flex flex-col justify-center items-center pt-5 gap-2">
                       <label className="text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
                         Enter new Username
                       </label>
@@ -372,7 +372,7 @@ export default function Account() {
                       className="absolute -z-10 w-auto min-w-full min-h-full max-w-none"
                     ></video>
 
-                    <div className="flex flex-col justify-center items-center gap-2">
+                    <div className="flex flex-col justify-center items-center gap-2 pt-5">
                       <label className="text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
                         Enter new email address
                       </label>
@@ -389,7 +389,7 @@ export default function Account() {
 
                     <div className="flex justify-end mr-5">
                       
-                      <button onClick={() => UpdateEmail()} className="w-12 bg-white text-indigo-800 p-2 rounded-md mt-3">
+                      <button onClick={() => updateEmail()} className="w-12 bg-white text-indigo-800 p-2 rounded-md mt-3">
                         Save
                       </button>
                     </div>
