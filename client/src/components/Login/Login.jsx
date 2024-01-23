@@ -23,7 +23,6 @@ export default function Login() {
 
     const response = await login({ username, password });
     dispatch(updateUser(response.data));
-    console.log(error);
   };
 
   return (
