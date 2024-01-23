@@ -73,6 +73,28 @@ export const gamesApi = createApi({
         body: { ...data },
       }),
     }),
+    updateUsername: builder.mutation({
+      query: (data) => ({
+        url: `/user/username`,
+        method: "PATCH",
+        headers: {
+          "content-type": "application/json",
+          authorization: `Bearer ${data.token}`,
+        },
+        body: { ...data },
+      }),
+    }),
+    updateEmail: builder.mutation({
+      query: (data) => ({
+        url: `/user/email`,
+        method: "PATCH",
+        headers: {
+          "content-type": "application/json",
+          authorization: `Bearer ${data.token}`,
+        },
+        body: { ...data },
+      }),
+    }),
   }),
 });
 
@@ -88,4 +110,6 @@ export const {
   useGetGameVotesMutation,
   useGetLeaderboardMutation,
   useUpdatePicMutation,
+  useUpdateEmailMutation,
+  useUpdateUsernameMutation,
 } = gamesApi;

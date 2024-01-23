@@ -56,7 +56,7 @@ export default function Login() {
                 name="Password"
               />
             </div>
-            {error?.data && <p className="error">{error?.data}</p>}
+            {error?.data && <p className="text-red-600 bg-white p-[1px]">{error?.data}</p>}
             <div className="absolute bottom-0 right-0 pr-8">
               <button
                 className="border-solid border-2 border-sky-900 bg-sky-500 pl-1 pr-1 rounded hover:bg-sky-300 hover:border-sky-700"

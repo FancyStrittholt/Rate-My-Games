@@ -36,7 +36,7 @@ export default function Register() {
   }, [isSuccess, navigate]);
 
   const canSave =
-    username.length > 2 && validEmail && validPassword && !isLoading;
+    username.length > 4 && validEmail && validPassword && !isLoading;
 
   const onRegister = async (event) => {
     event.preventDefault();
@@ -51,10 +51,10 @@ export default function Register() {
       errors.password = "Invalid Password";
     }
 
-    if (username.length < 2) {
-      errors.firstName = "Invalid First Name";
+    if (username.length < 4) {
+      errors.userName = "Invalid Username";
     }
-
+console.log(errors)
     if (Object.keys(errors).length > 0) {
       setErrors(errors);
       return;
@@ -69,15 +69,19 @@ export default function Register() {
 
   return (
     <div className="flex justify-center items-center mt-10">
-      <div className="form w-[500px] h-[400px] border-2 border-[#b35d93] rounded-md">
-        <h3 className="text-2xl text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] p-5">Create an Account</h3>
+      <div className="form w-[500px] h-[440px] border-2 border-[#b35d93] rounded-md">
+        <h3 className="text-2xl text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] p-5">
+          Create an Account
+        </h3>
 
         <form
-          className="p-5 flex flex-col justify-center items-center relative pb-28 gap-4"
+          className="p-5 flex flex-col justify-center items-center relative pb-16 gap-4"
           onSubmit={onRegister}
         >
           <div>
-            <label className='text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]'>Username</label>
+            <label className="text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
+              Username
+            </label>
             <br />
             <input
               autoFocus
@@ -88,7 +92,9 @@ export default function Register() {
             />
           </div>
           <div>
-            <label className='text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]'>Email</label>
+            <label className="text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
+              Email
+            </label>
             <br />
             <input
               type="text"
@@ -98,7 +104,9 @@ export default function Register() {
             />
           </div>
           <div>
-            <label className='text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]'>Password</label>
+            <label className="text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
+              Password
+            </label>
             <br />
             <input
               type="text"
@@ -107,6 +115,10 @@ export default function Register() {
               onChange={(event) => setPassword(event.target.value)}
             />
           </div>
+            {error?.data && <p className="text-red-600 bg-white p-[1px]">{error?.data}</p>}
+            {errors.userName ? <p className="text-red-600 bg-white p-[1px]">{errors.userName}</p> : null}
+            {errors.email ? <p className="text-red-600 bg-white p-[1px]">{errors.email}</p> : null}
+            {errors.password ? <p className="text-red-600 bg-white p-[1px]">{errors.password}</p> : null}
           <div className="absolute bottom-0 right-0 pr-8">
             <button
               className="border-solid border-2 border-sky-900 bg-sky-500 pl-1 pr-1 rounded hover:bg-sky-300 hover:border-sky-700"
@@ -118,11 +130,6 @@ export default function Register() {
             </button>
           </div>
         </form>
-        {error?.data && <p className="error">{error?.data}</p>}
-        {errors.firstName ? <p className="error">{errors.firstName}</p> : null}
-        {errors.lastName ? <p className="error">{errors.lastName}</p> : null}
-        {errors.email ? <p className="error">{errors.email}</p> : null}
-        {errors.password ? <p className="error">{errors.password}</p> : null}
       </div>
     </div>
   );

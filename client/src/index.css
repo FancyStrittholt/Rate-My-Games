@@ -30,13 +30,14 @@ body > div {
 
 .hero-background {
   background-image: url("../src/assets/images/bgimage.png");
-  background-position: center; 
-  background-repeat: no-repeat; 
-  background-size: cover; 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-.form{
-  background-image: url('../src/assets/images/form.png');
+.form {
+  background-image: url("../src/assets/images/form.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
-
-
