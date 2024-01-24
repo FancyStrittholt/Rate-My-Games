@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import styles from "./Account.module.css";
 import GameCard from "../common/GameCard";
 import { Dialog, Transition, RadioGroup } from "@headlessui/react";
-import { useUpdatePicMutation } from "../../../api/gamesApi";
+import { useUpdateEmailMutation, useUpdatePicMutation, useUpdateUsernameMutation } from "../../../api/gamesApi";
 import { updateUser } from "../../app/slice";
 import stars from "../../assets/images/stars.mp4";
 import { FaRegEdit } from "react-icons/fa";
@@ -44,9 +44,12 @@ export default function Account() {
   let [isOpen, setIsOpen] = useState(false);
   let [isUsernameOpen, setIsUsernameOpen] = useState(false);
   let [isEmailOpen, setIsEmailOpen] = useState(false);
-  let [username, setUsername] = useState();
-  let [email, setEmail] = useState();
+  let [updatedUsername, setUpdatedUsername] = useState();
+  let [updatedEmail, setUpdatedEmail] = useState();
   const [updatePic] = useUpdatePicMutation();
+  const [updateUsername] = useUpdateUsernameMutation();
+  const [updateEmail] = useUpdateEmailMutation();
+
   const dispatch = useDispatch();
 
   const navigate = useNavigate();
@@ -100,23 +103,23 @@ export default function Account() {
     closeModal();
   }
 
-  async function updateUsername() {
+  async function changeUsername() {
     const updatedUser = await updateUsername({
       id: user.id,
-      username: username,
+      username: updatedUsername,
       token: user.token,
     });
     dispatch(updateUser(updatedUser.data));
     closeUsernameModal();
   }
 
-  async function updateEmail() {
-    const updatedEmail = await updateEmail({
+  async function changeEmail() {
+    const response = await updateEmail({
       id: user.id,
-      email: email,
+      email: updatedEmail,
       token: user.token,
     });
-    dispatch(updateUser(updatedEmail.data));
+    dispatch(updateUser(response.data));
     closeEmailModal();
   }
 
@@ -312,13 +315,13 @@ export default function Account() {
                         type="text"
                         name="username"
                         defaultValue={user.username}
-                        onChange={(e)=> setUsername(e.target.value)}
+                        onChange={(e)=> setUpdatedUsername(e.target.value)}
                       />
                     </div>
 
                     <div className="flex justify-end mr-5">
                       
-                      <button onClick={() => updateUsername()} className="w-12 bg-white text-indigo-800 p-2 rounded-md mt-3">
+                      <button onClick={changeUsername} className="w-12 bg-white text-indigo-800 p-2 rounded-md mt-3">
                         Save
                       </button>
                     </div>
@@ -383,13 +386,13 @@ export default function Account() {
                         type="text"
                         name="email"
                         defaultValue={user.email}
-                        onChange={(e)=> setEmail(e.target.value)}
+                        onChange={(e)=> setUpdatedEmail(e.target.value)}
                       />
                     </div>
 
                     <div className="flex justify-end mr-5">
                       
-                      <button onClick={() => updateEmail()} className="w-12 bg-white text-indigo-800 p-2 rounded-md mt-3">
+                      <button onClick={changeEmail} className="w-12 bg-white text-indigo-800 p-2 rounded-md mt-3">
                         Save
                       </button>
                     </div>

@@ -333,6 +333,12 @@ export default function Home() {
             </Link>
           </div>
         </div>
+        {/* Funny Gameplay Videos */}
+        <div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
       </div>
     </>
   );

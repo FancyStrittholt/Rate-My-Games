@@ -7,7 +7,12 @@ async function register(body) {
     const token = await bcrypt.hash(body.password, 10);
     const {
       rows: [user],
-    } = await client.query('INSERT INTO users (username, email, token, pic) VALUES ($1, $2, $3, $4) RETURNING *', [body.username, body.email, token, 'Tom.png']);
+    } = await client.query('INSERT INTO users (username, email, token, pic) VALUES ($1, $2, $3, $4) RETURNING *', [
+      body.username,
+      body.email,
+      token,
+      'Tom.png',
+    ]);
     return user;
   } catch (error) {
     if (error.detail.includes('already exists')) {
@@ -22,7 +27,9 @@ async function login(body) {
     const {
       rows: [user],
     } = await client.query(`SELECT * from users WHERE username = '${body.username}'`);
-
+    if (!user) {
+      return 'Unable to login';
+    }
     const itMatches = await bcrypt.compare(body.password, user.token);
 
     if (itMatches) {

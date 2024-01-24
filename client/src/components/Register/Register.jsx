@@ -54,7 +54,7 @@ export default function Register() {
     if (username.length < 4) {
       errors.userName = "Invalid Username";
     }
-console.log(errors)
+
     if (Object.keys(errors).length > 0) {
       setErrors(errors);
       return;
@@ -62,8 +62,9 @@ console.log(errors)
 
     if (canSave) {
       const response = await register({ username, email, password });
-      console.log(response);
-      dispatch(updateUser(response.data));
+      if (response?.data) {
+        dispatch(updateUser(response.data));
+      }
     }
   };
 
@@ -109,16 +110,24 @@ console.log(errors)
             </label>
             <br />
             <input
-              type="text"
+              type="password"
               name="password"
               autoComplete="off"
               onChange={(event) => setPassword(event.target.value)}
             />
           </div>
-            {error?.data && <p className="text-red-600 bg-white p-[1px]">{error?.data}</p>}
-            {errors.userName ? <p className="text-red-600 bg-white p-[1px]">{errors.userName}</p> : null}
-            {errors.email ? <p className="text-red-600 bg-white p-[1px]">{errors.email}</p> : null}
-            {errors.password ? <p className="text-red-600 bg-white p-[1px]">{errors.password}</p> : null}
+          {error?.data && (
+            <p className="text-red-600 bg-white p-[1px]">{error?.data}</p>
+          )}
+          {errors.userName ? (
+            <p className="text-red-600 bg-white p-[1px]">{errors.userName}</p>
+          ) : null}
+          {errors.email ? (
+            <p className="text-red-600 bg-white p-[1px]">{errors.email}</p>
+          ) : null}
+          {errors.password ? (
+            <p className="text-red-600 bg-white p-[1px]">{errors.password}</p>
+          ) : null}
           <div className="absolute bottom-0 right-0 pr-8">
             <button
               className="border-solid border-2 border-sky-900 bg-sky-500 pl-1 pr-1 rounded hover:bg-sky-300 hover:border-sky-700"

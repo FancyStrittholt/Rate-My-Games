@@ -22,20 +22,26 @@ export default function Login() {
     event.preventDefault();
 
     const response = await login({ username, password });
-    dispatch(updateUser(response.data));
+    if (response?.data) {
+      dispatch(updateUser(response.data));
+    }
   };
 
   return (
     <>
       <div className="flex justify-center items-center mt-10">
         <div className="form w-[500px] h-[350px] border-2 border-[#b35d93] rounded-md">
-          <h3 className="text-2xl text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] p-5">Please Login</h3>
+          <h3 className="text-2xl text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] p-5">
+            Please Login
+          </h3>
           <form
             onSubmit={onLogin}
             className="p-5 flex flex-col justify-center items-center relative pb-24 gap-4"
           >
             <div>
-              <label className="text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">Username</label>
+              <label className="text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
+                Username
+              </label>
               <br />
               <input
                 autoFocus
@@ -46,16 +52,20 @@ export default function Login() {
               />
             </div>
             <div>
-              <label className="text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">Password</label>
+              <label className="text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
+                Password
+              </label>
               <br />
               <input
                 autoComplete="off"
                 onChange={(event) => setPassword(event.target.value)}
-                type="text"
+                type="password"
                 name="Password"
               />
             </div>
-            {error?.data && <p className="text-red-600 bg-white p-[1px]">{error?.data}</p>}
+            {error?.data && (
+              <p className="text-red-600 bg-white p-[1px]">{error?.data}</p>
+            )}
             <div className="absolute bottom-0 right-0 pr-8">
               <button
                 className="border-solid border-2 border-sky-900 bg-sky-500 pl-1 pr-1 rounded hover:bg-sky-300 hover:border-sky-700"

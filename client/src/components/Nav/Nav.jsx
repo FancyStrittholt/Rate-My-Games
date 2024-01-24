@@ -30,7 +30,7 @@ export default function Nav() {
               }
             ></img>
           </Link>
-          <h2>VGDB</h2>
+            <Link to='/'>VGDB</Link>
         </div>
         <div className="flex gap-[10px] pr-5">
           <SlGameController className="text-[#d06ec1] size-6" />

@@ -38,7 +38,7 @@ async function updateUsername(token, body) {
   }
 }
 
-async function UpdateEmail(token, body) {
+async function updateEmail(token, body) {
   try {
     const {
       rows: [user],
@@ -60,5 +60,5 @@ async function UpdateEmail(token, body) {
 module.exports = {
   updatePic,
   updateUsername,
-  UpdateEmail,
+  updateEmail,
 };
