@@ -36,7 +36,7 @@ export default function Home() {
                 Register an account to be able to manage your favorite video
                 games. Choose an avitar to personalize your profile.
               </p>
-              <Link className="bg-indigo-600 p-3 rounded-full text-lg px-8 text-white border-[1px] border-indigo-200 hover:bg-indigo-500 hover:border-indigo-600">
+              <Link to='/register' className="bg-indigo-600 p-3 rounded-full text-lg px-8 text-white border-[1px] border-indigo-200 hover:bg-indigo-500 hover:border-indigo-600">
                 Register
               </Link>
             </div>
