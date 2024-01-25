@@ -333,11 +333,46 @@ export default function Home() {
             </Link>
           </div>
         </div>
-        {/* Funny Gameplay Videos */}
+        <hr className="border-0 bg-indigo-800 rounded w-2/3 h-1 mx-auto" />
+
+        {/* Game trailers */}
         <div>
-          <div></div>
-          <div></div>
-          <div></div>
+          <div className='flex justify-center itmes-center pb-5'>
+          <h2 className="text-4xl text-white">Game Trailers</h2>
+          </div>
+          <div className="flex flex-row justify-center items-center gap-5 pb-10">
+            <div>
+              <iframe
+                width="560"
+                height="315"
+                src="https://www.youtube.com/embed/nS12Fbtgr5A"
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
+            <div>
+              {" "}
+              <iframe
+                width="560"
+                height="315"
+                src="https://www.youtube.com/embed/OWKebPO-s0M"
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
+            <div>
+              <iframe
+                width="560"
+                height="315"
+                src="https://www.youtube.com/embed/difL_diHo2o"
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
+          </div>
         </div>
       </div>
     </>
