@@ -51,7 +51,7 @@ export default function Register() {
       errors.password = "Invalid Password";
     }
 
-    if (username.length < 4) {
+    if (username.length <= 4) {
       errors.userName = "Invalid Username";
     }
 

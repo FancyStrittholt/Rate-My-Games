@@ -44,8 +44,8 @@ export default function Account() {
   let [isOpen, setIsOpen] = useState(false);
   let [isUsernameOpen, setIsUsernameOpen] = useState(false);
   let [isEmailOpen, setIsEmailOpen] = useState(false);
-  let [updatedUsername, setUpdatedUsername] = useState();
-  let [updatedEmail, setUpdatedEmail] = useState();
+  let [updatedUsername, setUpdatedUsername] = useState(user.username);
+  let [updatedEmail, setUpdatedEmail] = useState(user.email);
   const [updatePic] = useUpdatePicMutation();
   const [updateUsername] = useUpdateUsernameMutation();
   const [updateEmail] = useUpdateEmailMutation();
@@ -138,12 +138,6 @@ export default function Account() {
               ).href
             }
           ></img>
-          {/* <button
-            className="text-sm text-fuchsia-600 border-solid border-2 border-sky-500 pl-4 pr-4"
-            onClick={() => openModal()}
-          >
-            Edit
-          </button> */}
           <RiImageEditLine
             className="text-fuchsia-600 text-2xl bg-gray-800 hover:text-cyan-600"
             onClick={() => openModal()}

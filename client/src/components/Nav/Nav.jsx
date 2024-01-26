@@ -21,7 +21,7 @@ export default function Nav() {
   return (
     <>
       <div className="bg-gray-900 flex items-center justify-between text-[#d06ec1] pl-[25px] pr-[25px] pt-1 pb-1 font-medium">
-        <div className="flex justify-center items-center">
+        <div className="flex justify-center items-center hover:bg-gray-800 rounded">
           <Link to="/">
             <img
               className="h-[70px]"
