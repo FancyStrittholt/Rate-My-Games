@@ -52,7 +52,7 @@ export default function Register() {
     }
 
     if (username.length <= 4) {
-      errors.userName = "Invalid Username";
+      errors.userName = "Username should be more than 4 characters";
     }
 
     if (Object.keys(errors).length > 0) {
