@@ -115,7 +115,8 @@ async function createInitialData() {
       ('Stardew Valley', 'ConcernedApe', 'ConcernedApe', 'Youve inherited your grandfathers old farm plot in Stardew Valley. Armed with hand-me-down tools and a few coins, you set out to begin your new life. Can you learn to live off the land and turn these overgrown fields into a thriving home?', 'Stardew.png', 'https://store.steampowered.com/app/413150/Stardew_Valley/'),
       ('Grand Theft Auto V', 'Rockstar North', 'Rockstar Games', 'Grand Theft Auto V for PC offers players the option to explore the award-winning world of Los Santos and Blaine County in resolutions of up to 4k and beyond, as well as the chance to experience the game running at 60 frames per second.', 'GrandTheftV.png', 'https://store.steampowered.com/app/271590/Grand_Theft_Auto_V/'),
       ('Baldurs Gate 3', 'Larian Studios', 'Larian Studios', 'Baldurs Gate 3 is a story-rich, party-based RPG set in the universe of Dungeons & Dragons, where your choices shape a tale of fellowship and betrayal, survival and sacrifice, and the lure of absolute power.', 'BaldursGate3.png', 'https://store.steampowered.com/app/1086940/Baldurs_Gate_3/'),
-      ('Lethal Company', 'Zeekers', 'Zeekers', 'A co-op horror about scavenging at abandoned moons to sell scrap to the Company.', 'LethalCompany.png', 'https://store.steampowered.com/app/1966720/Lethal_Company/')
+      ('Lethal Company', 'Zeekers', 'Zeekers', 'A co-op horror about scavenging at abandoned moons to sell scrap to the Company.', 'LethalCompany.png', 'https://store.steampowered.com/app/1966720/Lethal_Company/'), 
+      ('Palworld', 'Pocketpair', 'Pocketpair', 'Fight, farm, build and work alongside mysterious creatures called "Pals" in this completely new multiplayer, open world survival and crafting game!', 'palworld.png', 'https://store.steampowered.com/app/1623730/Palworld/')
         `);
 
         await client.query(`
@@ -382,7 +383,10 @@ async function createInitialData() {
           (60, 'Horror'),
           (60, 'Co Op'),
           (60, 'Survival'),
-          (60, 'PVE');
+          (60, 'PVE'),
+          (61, 'Mulitplayer'),
+          (61, 'Survival'),
+          (61, 'Open World');
             `);
   } catch (error) {
     throw error;
